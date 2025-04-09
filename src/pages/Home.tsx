@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronRight, Award, BarChart, Users } from 'lucide-react';
+import { ChevronRight, Award, BarChart, Users, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { 
   Carousel,
@@ -171,11 +171,21 @@ const Home = () => {
             >
               <CarouselContent>
                 {/* Client Logos */}
-                {["Preethi", "Sowbaghya", "Premier", "Butterfly", "Easy"].map((client, index) => (
+                {[
+                  { name: "Preethi", icon: "check-circle" },
+                  { name: "Sowbaghya", icon: "check-circle" },
+                  { name: "Premier", icon: "check-circle" },
+                  { name: "Butterfly", icon: "check-circle" },
+                  { name: "Easy", icon: "check-circle" }
+                ].map((client, index) => (
                   <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/5">
                     <div className="p-1">
-                      <div className="flex justify-center items-center p-8 h-36 bg-white rounded-lg shadow hover:shadow-md transition-all hover:scale-105 duration-300">
-                        <div className="text-2xl font-bold text-gray-700">{client}</div>
+                      <div className="flex flex-col justify-center items-center p-8 h-36 bg-white rounded-lg shadow hover:shadow-lg transition-all hover:scale-105 duration-300">
+                        <CheckCircle2 
+                          className={`mb-2 ${index % 2 === 0 ? "text-brand-green" : "text-brand-gold"}`} 
+                          size={28} 
+                        />
+                        <div className="text-2xl font-bold text-gray-700">{client.name}</div>
                       </div>
                     </div>
                   </CarouselItem>
