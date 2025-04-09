@@ -1,9 +1,31 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronRight, Award, BarChart, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+  const [autoPlay, setAutoPlay] = useState(true);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (autoPlay) {
+        const nextButton = document.querySelector('.client-carousel .embla__button--next') as HTMLButtonElement;
+        if (nextButton) nextButton.click();
+      }
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [autoPlay]);
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -137,27 +159,31 @@ const Home = () => {
             <p className="text-gray-600">Trusted manufacturing partners in the kitchen appliance industry</p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-            {/* Client Logos */}
-            <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-              <div className="text-2xl font-bold text-gray-700">Preethi</div>
-            </div>
-            
-            <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-              <div className="text-2xl font-bold text-gray-700">Sowbaghya</div>
-            </div>
-            
-            <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-              <div className="text-2xl font-bold text-gray-700">Premier</div>
-            </div>
-            
-            <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-              <div className="text-2xl font-bold text-gray-700">Butterfly</div>
-            </div>
-            
-            <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-              <div className="text-2xl font-bold text-gray-700">Easy</div>
-            </div>
+          <div className="mt-8 relative client-carousel">
+            <Carousel 
+              opts={{
+                loop: true,
+                align: "start",
+              }}
+              className="w-full"
+              onMouseEnter={() => setAutoPlay(false)}
+              onMouseLeave={() => setAutoPlay(true)}
+            >
+              <CarouselContent>
+                {/* Client Logos */}
+                {["Preethi", "Sowbaghya", "Premier", "Butterfly", "Easy"].map((client, index) => (
+                  <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/5">
+                    <div className="p-1">
+                      <div className="flex justify-center items-center p-8 h-36 bg-white rounded-lg shadow hover:shadow-md transition-all hover:scale-105 duration-300">
+                        <div className="text-2xl font-bold text-gray-700">{client}</div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2" />
+              <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2" />
+            </Carousel>
           </div>
         </div>
       </section>
