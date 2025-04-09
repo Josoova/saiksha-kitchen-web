@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ChevronRight, Award, BarChart, Users } from 'lucide-react';
@@ -130,15 +129,15 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clients Section */}
+      {/* OEM Clients Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-2">Our Clients</h2>
-            <p className="text-gray-600">Trusted by leading kitchen appliance brands</p>
+            <h2 className="text-3xl font-bold mb-2">Our OEM Clients</h2>
+            <p className="text-gray-600">Trusted manufacturing partners in the kitchen appliance industry</p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
             {/* Client Logos */}
             <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
               <div className="text-2xl font-bold text-gray-700">Preethi</div>
@@ -153,7 +152,11 @@ const Home = () => {
             </div>
             
             <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
-              <div className="text-2xl font-bold text-gray-700">Butterfly Easy</div>
+              <div className="text-2xl font-bold text-gray-700">Butterfly</div>
+            </div>
+            
+            <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+              <div className="text-2xl font-bold text-gray-700">Easy</div>
             </div>
           </div>
         </div>
