@@ -1,22 +1,45 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { toast } from 'sonner';
+import { useLocation } from 'react-router-dom';
 
 const Contact = () => {
+  const location = useLocation();
+  const comingFromProduct = location.state?.fromProduct || false;
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    subject: '',
-    message: '',
+    subject: comingFromProduct ? 'Product Inquiry' : '',
+    message: comingFromProduct ? 'I am interested in getting a quote for your products.' : '',
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  useEffect(() => {
+    if (comingFromProduct) {
+      // Focus on name field if coming from product page
+      const nameInput = document.getElementById('name');
+      if (nameInput) {
+        nameInput.focus();
+        
+        // Scroll to form section
+        const formSection = document.querySelector('.contact-form-section');
+        if (formSection) {
+          formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Show toast notification
+        toast.info("Please fill out the form for a product quote.");
+      }
+    }
+  }, [comingFromProduct]);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,7 +67,7 @@ const Contact = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-green to-green-900 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-green to-green-900 text-white py-16 animate-fade-in">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-lg max-w-3xl mx-auto">
@@ -54,12 +77,14 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info Section */}
-      <section className="py-16">
+      <section className="py-16 contact-form-section">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-brand-green">Send us a Message</h2>
+            <div className="animate-fade-in" style={{animationDelay: "150ms"}}>
+              <h2 className="text-3xl font-bold mb-6 text-brand-green">
+                {comingFromProduct ? 'Request a Quote' : 'Send us a Message'}
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block mb-2 font-medium">
@@ -72,6 +97,7 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
+                    className="transition-all duration-300 focus:border-brand-green focus:ring-brand-green"
                   />
                 </div>
                 
@@ -88,6 +114,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="your@email.com"
                       required
+                      className="transition-all duration-300 focus:border-brand-green focus:ring-brand-green"
                     />
                   </div>
                   
@@ -101,6 +128,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Your phone number"
+                      className="transition-all duration-300 focus:border-brand-green focus:ring-brand-green"
                     />
                   </div>
                 </div>
@@ -116,6 +144,7 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="What is this regarding?"
                     required
+                    className="transition-all duration-300 focus:border-brand-green focus:ring-brand-green"
                   />
                 </div>
                 
@@ -131,36 +160,56 @@ const Contact = () => {
                     placeholder="Your message here..."
                     rows={5}
                     required
+                    className="transition-all duration-300 focus:border-brand-green focus:ring-brand-green"
                   />
                 </div>
                 
-                <Button type="submit" className="w-full bg-brand-green hover:bg-green-800" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                <Button 
+                  type="submit" 
+                  className="w-full bg-brand-green hover:bg-green-800 transition-all hover:scale-105" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : (comingFromProduct ? 'Send Quote Request' : 'Send Message')}
                 </Button>
               </form>
             </div>
             
             {/* Contact Information */}
-            <div>
+            <div className="animate-fade-in" style={{animationDelay: "300ms"}}>
               <h2 className="text-3xl font-bold mb-6 text-brand-green">Contact Information</h2>
               <div className="grid grid-cols-1 gap-6">
-                <Card>
+                <Card className="transition-all hover:-translate-y-1 hover:shadow-lg duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <MapPin className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Head Office</h3>
                         <p className="text-gray-600">
-                          123 Kitchen Street, Appliance District<br />
-                          Mumbai, Maharashtra 400001<br />
-                          India
+                          No. 147, 2nd Floor, GN Chetty Road,<br />
+                          T Nagar, Chennai - 600017
                         </p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
                 
-                <Card>
+                <Card className="transition-all hover:-translate-y-1 hover:shadow-lg duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start">
+                      <MapPin className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2">Works</h3>
+                        <p className="text-gray-600">
+                          Survey no 150/16A, 150/16B2, 150/16C,<br />
+                          Panakattukupam Village,<br />
+                          Vandalur Taluk, Chengalpattu - 600048
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                <Card className="transition-all hover:-translate-y-1 hover:shadow-lg duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <Phone className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
@@ -176,23 +225,21 @@ const Contact = () => {
                   </CardContent>
                 </Card>
                 
-                <Card>
+                <Card className="transition-all hover:-translate-y-1 hover:shadow-lg duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <Mail className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Email</h3>
                         <p className="text-gray-600">
-                          Sales: sales@saikshakitchen.com<br />
-                          Support: support@saikshakitchen.com<br />
-                          General: info@saikshakitchen.com
+                          info@ska.lt
                         </p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
                 
-                <Card>
+                <Card className="transition-all hover:-translate-y-1 hover:shadow-lg duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <Clock className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
@@ -214,10 +261,10 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 animate-fade-in" style={{animationDelay: "450ms"}}>
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center text-brand-green">Our Location</h2>
-          <div className="h-96 bg-gray-300 rounded-lg overflow-hidden">
+          <div className="h-96 bg-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
             {/* This is just a placeholder for a real map */}
             <div className="w-full h-full flex items-center justify-center bg-gray-200">
               <p className="text-gray-600">Interactive Map Would Be Displayed Here</p>
