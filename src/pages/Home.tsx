@@ -119,7 +119,7 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6">
-              <div className="bg-brand-green h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-brand-gold h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Premium Quality</h3>
@@ -139,7 +139,7 @@ const Home = () => {
             </div>
             
             <div className="text-center p-6">
-              <div className="bg-brand-green h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-brand-gold h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-2">Customer Support</h3>
