@@ -1,7 +1,6 @@
 
 import { Building, Award, Users, Clock, Star, MapPin, Mail, ChevronRight, Info } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -48,7 +47,7 @@ const About = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-green to-green-900 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-green to-green-900 text-white py-16 animate-fade-in">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Saiksha Kitchen Appliances</h1>
           <p className="text-lg max-w-3xl mx-auto">
@@ -58,14 +57,14 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-16">
+      <section className="py-16 animate-fade-in" style={{animationDelay: "200ms"}}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 hover-scale">
               <img 
-                src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png"
                 alt="Saiksha Kitchen Factory" 
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg transition-transform hover:scale-105 duration-300"
               />
             </div>
             <div className="md:w-1/2">
@@ -91,7 +90,7 @@ const About = () => {
       </section>
 
       {/* Our Vision & Mission */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 animate-fade-in" style={{animationDelay: "400ms"}}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-2 text-brand-green">Our Vision & Mission</h2>
@@ -99,7 +98,7 @@ const About = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg">
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
               <h3 className="text-2xl font-bold mb-4 text-brand-green">Our Vision</h3>
               <p className="text-gray-700">
                 To deliver innovative, reliable, and energy-efficient kitchen appliances that meet the 
@@ -109,7 +108,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white p-8 rounded-lg shadow-lg">
+            <div className="bg-white p-8 rounded-lg shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
               <h3 className="text-2xl font-bold mb-4 text-brand-green">Our Mission</h3>
               <p className="text-gray-700">
                 To be the leading provider of kitchen appliances, committed to superior design, 
@@ -124,7 +123,7 @@ const About = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-16">
+      <section className="py-16 animate-fade-in" style={{animationDelay: "600ms"}}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-2 text-brand-green">Our Core Values</h2>
@@ -132,7 +131,7 @@ const About = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow text-center">
+            <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
               <div className="bg-brand-green h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-white" />
               </div>
@@ -142,7 +141,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow text-center">
+            <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
               <div className="bg-brand-gold h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Building className="h-8 w-8 text-white" />
               </div>
@@ -152,7 +151,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow text-center">
+            <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
               <div className="bg-brand-green h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-white" />
               </div>
@@ -162,7 +161,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow text-center">
+            <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
               <div className="bg-brand-gold h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8 text-white" />
               </div>
@@ -176,7 +175,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 animate-fade-in" style={{animationDelay: "800ms"}}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-2 text-brand-green">Our Leadership</h2>
@@ -210,7 +209,7 @@ const About = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-16">
+      <section className="py-16 animate-fade-in" style={{animationDelay: "1000ms"}}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-2 text-brand-green">Our Infrastructure</h2>
@@ -218,18 +217,18 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
+            <div className="hover-scale">
               <img 
                 src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" 
                 alt="Manufacturing Facility" 
-                className="rounded-lg shadow-lg h-80 w-full object-cover"
+                className="rounded-lg shadow-lg h-80 w-full object-cover transition-transform hover:scale-105 duration-300"
               />
             </div>
-            <div>
+            <div className="hover-scale">
               <img 
                 src="public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png" 
                 alt="Production Line" 
-                className="rounded-lg shadow-lg h-80 w-full object-cover"
+                className="rounded-lg shadow-lg h-80 w-full object-cover transition-transform hover:scale-105 duration-300"
               />
             </div>
           </div>
@@ -254,7 +253,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow text-center">
+            <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
               <img 
                 src="public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png" 
                 alt="Manufacturing Process" 
@@ -266,7 +265,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow text-center">
+            <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
               <img 
                 src="public/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png" 
                 alt="Quality Control" 
@@ -278,7 +277,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow text-center">
+            <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
               <img 
                 src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" 
                 alt="Workspace" 
@@ -294,7 +293,7 @@ const About = () => {
       </section>
 
       {/* Contact Information Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 animate-fade-in" style={{animationDelay: "1200ms"}}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-2 text-brand-green">Contact Information</h2>
@@ -302,7 +301,7 @@ const About = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="overflow-hidden shadow-lg">
+            <Card className="overflow-hidden shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
               <CardContent className="p-8">
                 <div className="flex items-start mb-6">
                   <MapPin className="h-6 w-6 text-brand-green mr-3 mt-1 flex-shrink-0" />
@@ -325,7 +324,7 @@ const About = () => {
               </CardContent>
             </Card>
             
-            <Card className="overflow-hidden shadow-lg">
+            <Card className="overflow-hidden shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
               <CardContent className="p-8">
                 <div className="flex items-start">
                   <Building className="h-6 w-6 text-brand-gold mr-3 mt-1 flex-shrink-0" />
@@ -338,10 +337,6 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                
-                <Button className="bg-brand-green hover:bg-green-800 mt-6">
-                  <Link to="/contact" className="text-white">Contact Us</Link>
-                </Button>
               </CardContent>
             </Card>
           </div>
