@@ -69,7 +69,7 @@ const Home = () => {
             {/* Gas Stove Card */}
             <Card className="overflow-hidden shadow-lg transition-transform hover:scale-105">
               <img 
-                src="https://images.unsplash.com/photo-1613764153383-b9470ce5700f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" 
                 alt="Premium Gas Stove" 
                 className="h-64 w-full object-cover"
               />
@@ -89,7 +89,7 @@ const Home = () => {
             {/* Kettle Card */}
             <Card className="overflow-hidden shadow-lg transition-transform hover:scale-105">
               <img 
-                src="https://images.unsplash.com/photo-1622623373034-14fb466d0be1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                src="public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png" 
                 alt="Electric Kettle" 
                 className="h-64 w-full object-cover"
               />
@@ -172,20 +172,20 @@ const Home = () => {
               <CarouselContent>
                 {/* Client Logos */}
                 {[
-                  { name: "Preethi", icon: "check-circle" },
-                  { name: "Sowbaghya", icon: "check-circle" },
-                  { name: "Premier", icon: "check-circle" },
-                  { name: "Butterfly", icon: "check-circle" },
-                  { name: "Easy", icon: "check-circle" }
+                  { name: "Sowbaghya", logo: "public/lovable-uploads/9234820b-7143-420b-8fee-f1729c5d6646.png" },
+                  { name: "Premier", logo: "public/lovable-uploads/365208f2-ccbc-4d31-9233-da5887f389b8.png" },
+                  { name: "Thangam", logo: "public/lovable-uploads/500b1e70-f84a-4ac7-b409-5df61ce5823d.png" },
+                  { name: "Butterfly", logo: "public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" },
+                  { name: "Prestige", logo: "public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png" }
                 ].map((client, index) => (
                   <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/5">
                     <div className="p-1">
-                      <div className="flex flex-col justify-center items-center p-8 h-36 bg-white rounded-lg shadow hover:shadow-lg transition-all hover:scale-105 duration-300">
-                        <CheckCircle2 
-                          className={`mb-2 ${index % 2 === 0 ? "text-brand-green" : "text-brand-gold"}`} 
-                          size={28} 
+                      <div className="flex flex-col justify-center items-center p-6 h-32 bg-white rounded-lg shadow hover:shadow-lg transition-all hover:scale-105 duration-300">
+                        <img
+                          src={client.logo}
+                          alt={`${client.name} logo`}
+                          className="h-full object-contain"
                         />
-                        <div className="text-2xl font-bold text-gray-700">{client.name}</div>
                       </div>
                     </div>
                   </CarouselItem>
