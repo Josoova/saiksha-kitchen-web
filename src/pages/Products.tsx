@@ -268,36 +268,6 @@ const Products = () => {
 
   return (
     <div className="relative">
-      {/* Enhanced decorative background elements with blob shapes */}
-      <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-        {/* Blob shapes */}
-        <div className="absolute top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-40 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-[60%] left-1/2 w-64 h-64 bg-brand-gold/5 rounded-full blur-2xl"></div>
-        
-        {/* Wave pattern */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-48 opacity-10" 
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%2312582A'%3E%3C/path%3E%3C/svg%3E\")",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            transform: 'rotate(180deg)',
-          }}
-        ></div>
-        
-        {/* Abstract blob shape */}
-        <div 
-          className="absolute top-[25%] right-[10%] w-72 h-72 opacity-10" 
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23D4A335' d='M46.5,-51.8C59.5,-41,68.9,-25.3,70.1,-8.8C71.3,7.6,64.4,25,52.8,36.8C41.3,48.5,25,54.7,7.9,58.5C-9.2,62.2,-28.1,63.7,-40.8,56C-53.6,48.3,-60.2,31.4,-63.3,13.9C-66.4,-3.6,-66,-21.6,-57.5,-33.7C-49,-45.9,-32.5,-52.2,-16.2,-56.3C0,-60.4,16.1,-62.4,30.5,-58.5C44.9,-54.6,57.6,-45,46.5,-51.8Z' transform='translate(100 100)'/%3E%3C/svg%3E\")",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        ></div>
-      </div>
-
-      {/* Hero Section with enhanced background image */}
       <section 
         className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-20 overflow-hidden animate-fade-in"
         style={{
@@ -319,7 +289,6 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Products Section with updated styling */}
       <section className="py-16 relative z-10 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="gas-stoves" className="w-full" onValueChange={(value) => setActiveTab(value as ProductCategory)}>
@@ -340,7 +309,6 @@ const Products = () => {
               </TabsList>
             </div>
             
-            {/* Gas Stoves Tab */}
             <TabsContent value="gas-stoves">
               <div className="mb-10 animate-fade-in" style={{animationDelay: "150ms"}}>
                 <h2 className="text-3xl font-bold text-brand-green mb-6">Our Gas Stove Range</h2>
@@ -377,7 +345,6 @@ const Products = () => {
               </div>
             </TabsContent>
             
-            {/* Kettles Tab */}
             <TabsContent value="kettles">
               <div className="mb-10 animate-fade-in" style={{animationDelay: "150ms"}}>
                 <h2 className="text-3xl font-bold text-brand-green mb-6">Our Electric Kettle Range</h2>
@@ -391,29 +358,9 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Product Support Section with enhanced design */}
-      <section 
-        className="py-16 relative animate-fade-in overflow-hidden" 
-        style={{animationDelay: "450ms"}}
-      >
-        {/* Wave pattern at top of section */}
-        <div 
-          className="absolute top-0 left-0 right-0 h-20 opacity-20" 
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%2312582A'%3E%3C/path%3E%3C/svg%3E\")",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        ></div>
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white z-0"></div>
-        <div className="absolute inset-0 opacity-20 z-0" 
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23136a5a' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-          }}
-        ></div>
+      <section className="py-16 relative animate-fade-in bg-gray-50" style={{animationDelay: "450ms"}}>
         <div className="container mx-auto px-4 text-center relative z-10 mt-10">
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all border-t-4 border-brand-green">
+          <div className="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all border-t-4 border-brand-green">
             <h2 className="text-3xl font-bold mb-6 text-brand-green">Product Support</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
               We provide comprehensive after-sales support for all our products. 
