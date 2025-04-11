@@ -268,23 +268,42 @@ const Products = () => {
   );
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-green to-green-900 text-white py-16 animate-fade-in">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
-          <p className="text-lg max-w-3xl mx-auto">
+    <div className="relative">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+        <div className="absolute top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-40 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-[60%] left-1/2 w-64 h-64 bg-brand-gold/5 rounded-full blur-2xl"></div>
+      </div>
+
+      {/* Hero Section with background image */}
+      <section 
+        className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-16 overflow-hidden animate-fade-in"
+        style={{
+          backgroundImage: 'url(public/lovable-uploads/500b1e70-f84a-4ac7-b409-5df61ce5823d.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'overlay'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40 z-0"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shadow animate-scale-in">
+            Our Premium Products
+          </h1>
+          <p className="text-lg max-w-3xl mx-auto animate-fade-in" style={{animationDelay: "300ms"}}>
             Discover our range of high-quality gas stoves and kettles designed for the modern Indian kitchen.
           </p>
+          <div className="w-20 h-1 bg-brand-gold mx-auto mt-4 animate-scale-in" style={{animationDelay: "400ms"}}></div>
         </div>
       </section>
 
       {/* Products Section */}
-      <section className="py-16">
+      <section className="py-16 relative z-10">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="gas-stoves" className="w-full" onValueChange={(value) => setActiveTab(value as ProductCategory)}>
             <div className="text-center mb-8">
-              <TabsList className="inline-flex animate-fade-in">
+              <TabsList className="inline-flex animate-fade-in bg-white/80 backdrop-blur-sm shadow-lg">
                 <TabsTrigger value="gas-stoves" className="text-lg px-6 transition-all hover:-translate-y-1">Gas Stoves</TabsTrigger>
                 <TabsTrigger value="kettles" className="text-lg px-6 transition-all hover:-translate-y-1">Kettles</TabsTrigger>
               </TabsList>
@@ -342,20 +361,31 @@ const Products = () => {
       </section>
 
       {/* Product Support Section */}
-      <section className="py-16 bg-gray-50 animate-fade-in" style={{animationDelay: "450ms"}}>
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-brand-green">Product Support</h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            We provide comprehensive after-sales support for all our products. 
-            If you need assistance, please reach out to our customer service team.
-          </p>
-          <Button 
-            onClick={handleRequestQuote}
-            asChild 
-            className="bg-brand-green hover:bg-green-800 animate-scale-in transition-transform hover:scale-105"
-          >
-            <span>Contact Support</span>
-          </Button>
+      <section 
+        className="py-16 relative animate-fade-in overflow-hidden" 
+        style={{animationDelay: "450ms"}}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-gray-100 z-0"></div>
+        <div className="absolute inset-0 opacity-20 z-0" 
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23136a5a' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+          }}
+        ></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all">
+            <h2 className="text-3xl font-bold mb-6 text-brand-green">Product Support</h2>
+            <p className="text-lg mb-8 max-w-2xl mx-auto">
+              We provide comprehensive after-sales support for all our products. 
+              If you need assistance, please reach out to our customer service team.
+            </p>
+            <Button 
+              onClick={handleRequestQuote}
+              asChild 
+              className="bg-brand-green hover:bg-green-800 animate-scale-in transition-transform hover:scale-105"
+            >
+              <span>Contact Support</span>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

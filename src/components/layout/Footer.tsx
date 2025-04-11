@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -12,6 +12,17 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 text-brand-gold">Saiksha Kitchen Appliances Pvt Ltd</h3>
             <p className="mb-4">Bringing quality kitchen appliances to enhance your cooking experience with our premium gas stoves and kettles.</p>
             <img src="/lovable-uploads/44e90ac6-77dd-4cb4-b53b-64c6ce6eea43.png" alt="Saiksha Kitchen Appliances Logo" className="h-16 mb-4" />
+            <div className="flex space-x-4 mt-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">
+                <Facebook className="h-6 w-6" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">
+                <Twitter className="h-6 w-6" />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-gold transition-colors">
+                <Youtube className="h-6 w-6" />
+              </a>
+            </div>
           </div>
           
           {/* Quick Links */}
@@ -39,7 +50,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-brand-gold shrink-0 mt-0.5" />
-                <span>123 Kitchen Street, Appliance District, India</span>
+                <span>No. 147, 2nd Floor, GN Chetty Road, T Nagar, Chennai - 600017</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-brand-gold" />

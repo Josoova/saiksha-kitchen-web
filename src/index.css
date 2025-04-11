@@ -110,3 +110,21 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Custom animations and utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .bg-gradient-overlay {
+    background: linear-gradient(to right, rgba(18, 88, 42, 0.8), rgba(18, 88, 42, 0.6));
+  }
+  
+  .transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+}
+
