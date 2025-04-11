@@ -66,16 +66,28 @@ const Contact = () => {
 
   return (
     <div className="relative">
-      {/* Background pattern elements */}
+      {/* Enhanced background pattern elements */}
       <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-        <div className="absolute top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-40 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-[60%] left-1/2 w-64 h-64 bg-brand-gold/5 rounded-full blur-2xl"></div>
+        {/* Blob shapes */}
+        <div className="absolute top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl blob-animation"></div>
+        <div className="absolute -bottom-20 -left-40 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl blob-animation" style={{animationDelay: "2s"}}></div>
+        <div className="absolute top-[60%] left-1/2 w-64 h-64 bg-brand-gold/5 rounded-full blur-2xl blob-animation" style={{animationDelay: "4s"}}></div>
+        
+        {/* Wave pattern */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-48 opacity-10 wave-animation" 
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%2312582A'%3E%3C/path%3E%3C/svg%3E\")",
+            backgroundSize: '100% 100%',
+            backgroundPosition: 'center',
+            transform: 'rotate(180deg)',
+          }}
+        ></div>
       </div>
 
-      {/* Hero Section with background image */}
+      {/* Hero Section with enhanced background image and overlay patterns */}
       <section 
-        className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-16 overflow-hidden animate-fade-in"
+        className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-20 overflow-hidden animate-fade-in"
         style={{
           backgroundImage: 'url(public/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png)',
           backgroundSize: 'cover',
@@ -84,22 +96,29 @@ const Contact = () => {
         }}
       >
         <div className="absolute inset-0 bg-black/50 z-0"></div>
+        
+        {/* Overlay pattern */}
+        <div 
+          className="absolute inset-0 opacity-20 z-0" 
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E\")",
+          }}
+        ></div>
+        
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shadow animate-scale-in">Get In Touch</h1>
-          <p className="text-lg max-w-3xl mx-auto animate-fade-in" style={{animationDelay: "300ms"}}>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shadow-lg animate-scale-in">Get In Touch</h1>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto animate-fade-in" style={{animationDelay: "300ms"}}>
             We're here to answer your questions and provide support for all our products.
           </p>
-          <div className="w-20 h-1 bg-brand-gold mx-auto mt-4 animate-scale-in" style={{animationDelay: "400ms"}}></div>
+          <div className="w-32 h-1 bg-brand-gold mx-auto mt-6 animate-scale-in" style={{animationDelay: "400ms"}}></div>
         </div>
       </section>
 
       {/* Contact Form & Info Section */}
-      <section className="py-16 contact-form-section relative z-10">
-        <div className="absolute inset-0 opacity-20 z-0" 
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23136a5a' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-          }}
-        ></div>
+      <section className="py-16 contact-form-section relative z-10 bg-gradient-to-b from-white to-gray-50">
+        {/* Enhanced background pattern */}
+        <div className="absolute inset-0 opacity-20 z-0 bg-pattern-dot"></div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -201,11 +220,11 @@ const Contact = () => {
               </Card>
             </div>
             
-            {/* Contact Information */}
+            {/* Contact Information with enhanced design */}
             <div className="animate-fade-in" style={{animationDelay: "300ms"}}>
               <h2 className="text-3xl font-bold mb-6 text-brand-green">Contact Information</h2>
               <div className="grid grid-cols-1 gap-6">
-                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm">
+                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm border-l-4 border-brand-green">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <MapPin className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
@@ -220,10 +239,10 @@ const Contact = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm">
+                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm border-l-4 border-brand-gold">
                   <CardContent className="p-6">
                     <div className="flex items-start">
-                      <MapPin className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
+                      <MapPin className="h-6 w-6 text-brand-gold mr-4 shrink-0 mt-1" />
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Works</h3>
                         <p className="text-gray-600">
@@ -236,7 +255,7 @@ const Contact = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm">
+                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm border-l-4 border-brand-green">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <Phone className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
@@ -252,10 +271,10 @@ const Contact = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm">
+                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm border-l-4 border-brand-gold">
                   <CardContent className="p-6">
                     <div className="flex items-start">
-                      <Mail className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
+                      <Mail className="h-6 w-6 text-brand-gold mr-4 shrink-0 mt-1" />
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Email</h3>
                         <p className="text-gray-600">
@@ -266,7 +285,7 @@ const Contact = () => {
                   </CardContent>
                 </Card>
                 
-                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm">
+                <Card className="transition-all hover:-translate-y-2 hover:shadow-lg duration-300 bg-white/90 backdrop-blur-sm border-l-4 border-brand-green">
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <Clock className="h-6 w-6 text-brand-green mr-4 shrink-0 mt-1" />
@@ -287,17 +306,31 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Map Section with enhanced design */}
       <section className="py-16 relative z-10 animate-fade-in" style={{animationDelay: "450ms"}}>
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-gray-100 z-0"></div>
+        {/* Wave pattern at top of section */}
+        <div 
+          className="absolute top-0 left-0 right-0 h-20 opacity-10" 
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23D4A335'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23D4A335'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23D4A335'%3E%3C/path%3E%3C/svg%3E\")",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        ></div>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white z-0"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-lg">
+          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-100">
             <h2 className="text-3xl font-bold mb-8 text-center text-brand-green">Our Location</h2>
             <div className="h-96 bg-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
-              {/* This is just a placeholder for a real map */}
-              <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                <p className="text-gray-600">Interactive Map Would Be Displayed Here</p>
+              {/* This is just a placeholder for a real map - you would integrate Google Maps or similar here */}
+              <div className="w-full h-full flex items-center justify-center bg-gray-200 relative">
+                <div className="absolute inset-0 bg-pattern-grid opacity-30"></div>
+                <p className="text-gray-600 relative z-10 font-medium">Interactive Map Would Be Displayed Here</p>
               </div>
+            </div>
+            <div className="mt-6 text-center">
+              <p className="text-gray-600">Visit our factory to see our manufacturing excellence in action.</p>
             </div>
           </div>
         </div>

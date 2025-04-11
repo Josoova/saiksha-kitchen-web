@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -269,16 +268,38 @@ const Products = () => {
 
   return (
     <div className="relative">
-      {/* Background decorative elements */}
+      {/* Enhanced decorative background elements with blob shapes */}
       <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+        {/* Blob shapes */}
         <div className="absolute top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -left-40 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl"></div>
         <div className="absolute top-[60%] left-1/2 w-64 h-64 bg-brand-gold/5 rounded-full blur-2xl"></div>
+        
+        {/* Wave pattern */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-48 opacity-10" 
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%2312582A'%3E%3C/path%3E%3C/svg%3E\")",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            transform: 'rotate(180deg)',
+          }}
+        ></div>
+        
+        {/* Abstract blob shape */}
+        <div 
+          className="absolute top-[25%] right-[10%] w-72 h-72 opacity-10" 
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23D4A335' d='M46.5,-51.8C59.5,-41,68.9,-25.3,70.1,-8.8C71.3,7.6,64.4,25,52.8,36.8C41.3,48.5,25,54.7,7.9,58.5C-9.2,62.2,-28.1,63.7,-40.8,56C-53.6,48.3,-60.2,31.4,-63.3,13.9C-66.4,-3.6,-66,-21.6,-57.5,-33.7C-49,-45.9,-32.5,-52.2,-16.2,-56.3C0,-60.4,16.1,-62.4,30.5,-58.5C44.9,-54.6,57.6,-45,46.5,-51.8Z' transform='translate(100 100)'/%3E%3C/svg%3E\")",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        ></div>
       </div>
 
-      {/* Hero Section with background image */}
+      {/* Hero Section with enhanced background image */}
       <section 
-        className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-16 overflow-hidden animate-fade-in"
+        className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-20 overflow-hidden animate-fade-in"
         style={{
           backgroundImage: 'url(public/lovable-uploads/500b1e70-f84a-4ac7-b409-5df61ce5823d.png)',
           backgroundSize: 'cover',
@@ -288,24 +309,34 @@ const Products = () => {
       >
         <div className="absolute inset-0 bg-black/40 z-0"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shadow animate-scale-in">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-shadow animate-scale-in">
             Our Premium Products
           </h1>
-          <p className="text-lg max-w-3xl mx-auto animate-fade-in" style={{animationDelay: "300ms"}}>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto animate-fade-in" style={{animationDelay: "300ms"}}>
             Discover our range of high-quality gas stoves and kettles designed for the modern Indian kitchen.
           </p>
-          <div className="w-20 h-1 bg-brand-gold mx-auto mt-4 animate-scale-in" style={{animationDelay: "400ms"}}></div>
+          <div className="w-32 h-1 bg-brand-gold mx-auto mt-6 animate-scale-in" style={{animationDelay: "400ms"}}></div>
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="py-16 relative z-10">
+      {/* Products Section with updated styling */}
+      <section className="py-16 relative z-10 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="gas-stoves" className="w-full" onValueChange={(value) => setActiveTab(value as ProductCategory)}>
             <div className="text-center mb-8">
-              <TabsList className="inline-flex animate-fade-in bg-white/80 backdrop-blur-sm shadow-lg">
-                <TabsTrigger value="gas-stoves" className="text-lg px-6 transition-all hover:-translate-y-1">Gas Stoves</TabsTrigger>
-                <TabsTrigger value="kettles" className="text-lg px-6 transition-all hover:-translate-y-1">Kettles</TabsTrigger>
+              <TabsList className="inline-flex animate-fade-in bg-white/80 backdrop-blur-sm shadow-lg rounded-full overflow-hidden border border-gray-200">
+                <TabsTrigger 
+                  value="gas-stoves" 
+                  className="text-lg px-8 py-3 transition-all hover:-translate-y-1 rounded-full"
+                >
+                  Gas Stoves
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="kettles" 
+                  className="text-lg px-8 py-3 transition-all hover:-translate-y-1 rounded-full"
+                >
+                  Kettles
+                </TabsTrigger>
               </TabsList>
             </div>
             
@@ -360,19 +391,29 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Product Support Section */}
+      {/* Product Support Section with enhanced design */}
       <section 
         className="py-16 relative animate-fade-in overflow-hidden" 
         style={{animationDelay: "450ms"}}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-gray-100 z-0"></div>
+        {/* Wave pattern at top of section */}
+        <div 
+          className="absolute top-0 left-0 right-0 h-20 opacity-20" 
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%2312582A'%3E%3C/path%3E%3C/svg%3E\")",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        ></div>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white z-0"></div>
         <div className="absolute inset-0 opacity-20 z-0" 
           style={{
             backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23136a5a' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
           }}
         ></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all">
+        <div className="container mx-auto px-4 text-center relative z-10 mt-10">
+          <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all border-t-4 border-brand-green">
             <h2 className="text-3xl font-bold mb-6 text-brand-green">Product Support</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
               We provide comprehensive after-sales support for all our products. 
@@ -381,7 +422,7 @@ const Products = () => {
             <Button 
               onClick={handleRequestQuote}
               asChild 
-              className="bg-brand-green hover:bg-green-800 animate-scale-in transition-transform hover:scale-105"
+              className="bg-brand-green hover:bg-green-800 animate-scale-in transition-transform hover:scale-105 px-8 py-6 text-lg rounded-full"
             >
               <span>Contact Support</span>
             </Button>
