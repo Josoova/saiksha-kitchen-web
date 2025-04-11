@@ -1,5 +1,5 @@
 
-import { Building, Award, Users, Clock, Star, MapPin, Mail, ChevronRight, Info } from 'lucide-react';
+import { Building, Award, Users, Clock, Star, MapPin, Mail, ChevronRight, Info, Target, Compass } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -47,12 +47,25 @@ const About = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-green to-green-900 text-white py-16 animate-fade-in">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Saiksha Kitchen Appliances</h1>
-          <p className="text-lg max-w-3xl mx-auto">
-            We are a leading manufacturer of high-quality kitchen appliances dedicated to enhancing the cooking experience in Indian homes.
-          </p>
+      <section className="relative h-[400px] md:h-[500px] animate-fade-in">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50 z-10"></div>
+          <img 
+            src="public/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png" 
+            alt="Factory" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Content */}
+        <div className="container mx-auto px-4 h-full flex items-center relative z-20">
+          <div className="max-w-3xl text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-enter">About Saiksha Kitchen Appliances</h1>
+            <p className="text-lg md:text-xl max-w-2xl">
+              We are a leading manufacturer of high-quality kitchen appliances dedicated to enhancing the cooking experience in Indian homes.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -93,30 +106,79 @@ const About = () => {
       <section className="py-16 bg-gray-50 animate-fade-in" style={{animationDelay: "400ms"}}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-2 text-brand-green">Our Vision & Mission</h2>
+            <h2 className="text-3xl font-bold mb-4 text-brand-green">Our Vision & Mission</h2>
             <p className="text-gray-600">Guiding principles that drive our company forward</p>
+            <div className="w-20 h-1 bg-brand-gold mx-auto mt-4"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
-              <h3 className="text-2xl font-bold mb-4 text-brand-green">Our Vision</h3>
-              <p className="text-gray-700">
+            <div className="bg-gradient-to-br from-brand-green/10 to-brand-green/5 p-10 rounded-xl shadow-lg hover:shadow-xl transition-all border border-brand-green/20 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-brand-green/10 w-24 h-24 rounded-full -mr-12 -mt-12 blur-xl"></div>
+              <div className="absolute bottom-0 left-0 bg-brand-green/10 w-32 h-32 rounded-full -ml-16 -mb-16 blur-xl"></div>
+              
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-brand-green rounded-full mr-4">
+                  <Target className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-brand-green">Our Vision</h3>
+              </div>
+              
+              <p className="text-gray-700 leading-relaxed relative z-10 text-lg">
                 To deliver innovative, reliable, and energy-efficient kitchen appliances that meet the 
                 evolving needs of consumers worldwide. To prosper long into the future, while 
                 maintaining top quality and minimizing costs. The company also believes in caring for 
                 the community and giving back to society.
               </p>
+              
+              <div className="mt-8 flex flex-wrap gap-4">
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                  <span className="h-3 w-3 bg-brand-green rounded-full mr-2"></span>
+                  <span className="text-sm font-medium">Innovation</span>
+                </div>
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                  <span className="h-3 w-3 bg-brand-green rounded-full mr-2"></span>
+                  <span className="text-sm font-medium">Quality</span>
+                </div>
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                  <span className="h-3 w-3 bg-brand-green rounded-full mr-2"></span>
+                  <span className="text-sm font-medium">Community</span>
+                </div>
+              </div>
             </div>
             
-            <div className="bg-white p-8 rounded-lg shadow-lg transition-all hover:shadow-xl hover:-translate-y-1">
-              <h3 className="text-2xl font-bold mb-4 text-brand-green">Our Mission</h3>
-              <p className="text-gray-700">
+            <div className="bg-gradient-to-br from-brand-gold/10 to-brand-gold/5 p-10 rounded-xl shadow-lg hover:shadow-xl transition-all border border-brand-gold/20 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-brand-gold/10 w-24 h-24 rounded-full -mr-12 -mt-12 blur-xl"></div>
+              <div className="absolute bottom-0 left-0 bg-brand-gold/10 w-32 h-32 rounded-full -ml-16 -mb-16 blur-xl"></div>
+              
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-brand-gold rounded-full mr-4">
+                  <Compass className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-brand-gold">Our Mission</h3>
+              </div>
+              
+              <p className="text-gray-700 leading-relaxed relative z-10 text-lg">
                 To be the leading provider of kitchen appliances, committed to superior design, 
                 technology, and sustainability. To bring innovation and quality to every kitchen and 
                 home, empowering customers with reliable and stylish appliances. To cultivate a group 
                 of employees who accept the work philosophy, have family support, and are proud of 
                 the company.
               </p>
+              
+              <div className="mt-8 flex flex-wrap gap-4">
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                  <span className="h-3 w-3 bg-brand-gold rounded-full mr-2"></span>
+                  <span className="text-sm font-medium">Leadership</span>
+                </div>
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                  <span className="h-3 w-3 bg-brand-gold rounded-full mr-2"></span>
+                  <span className="text-sm font-medium">Excellence</span>
+                </div>
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                  <span className="h-3 w-3 bg-brand-gold rounded-full mr-2"></span>
+                  <span className="text-sm font-medium">Empowerment</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

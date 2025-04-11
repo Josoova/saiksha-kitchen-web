@@ -5,89 +5,65 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HelpCircle, ShieldCheck, Clock, Users, Zap } from 'lucide-react';
+import { HelpCircle } from "lucide-react";
 
 const FAQ = () => {
+  const faqs = [
+    {
+      question: "What types of kitchen appliances does Saiksha manufacture?",
+      answer: "Saiksha Kitchen Appliances specializes in manufacturing high-quality gas stoves and electric kettles. Our product range includes various models with different burner configurations, designs, and features to suit different customer needs.",
+      color: "brand-green"
+    },
+    {
+      question: "Are your gas stoves ISI certified?",
+      answer: "Yes, all our gas stoves are ISI certified, ensuring they meet the quality and safety standards set by the Bureau of Indian Standards. This certification guarantees that our products have undergone rigorous testing and comply with national safety regulations.",
+      color: "brand-gold"
+    },
+    {
+      question: "Do you offer warranty on your products?",
+      answer: "Yes, we provide warranty coverage on all our products. Gas stoves typically come with a 2-year warranty, while electric kettles have a 1-year warranty. The warranty covers manufacturing defects and certain functional issues as specified in the warranty card provided with each product.",
+      color: "brand-green"
+    },
+    {
+      question: "Do you offer OEM manufacturing services?",
+      answer: "Yes, we offer OEM (Original Equipment Manufacturing) services for brands looking to outsource their production. With our state-of-the-art manufacturing facility and experienced team, we can produce kitchen appliances according to your specifications and brand requirements.",
+      color: "brand-gold"
+    },
+    {
+      question: "How can I become a distributor for Saiksha products?",
+      answer: "To become a distributor for Saiksha Kitchen Appliances, please contact our sales team through the Contact page on our website. We evaluate potential distributors based on market coverage, business experience, and alignment with our brand values. Our team will guide you through the application process and provide information about our distributor program.",
+      color: "brand-green"
+    }
+  ];
+
   return (
-    <section className="py-16 animate-fade-in" style={{animationDelay: "1050ms"}}>
+    <section className="py-16 bg-gray-50 animate-fade-in" style={{animationDelay: "900ms"}}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">Frequently Asked Questions</h2>
-          <p className="text-gray-600">Find answers to common questions about our products</p>
-          <div className="w-20 h-1 bg-gradient-to-r from-brand-green to-brand-gold mx-auto mt-4"></div>
+          <div className="flex items-center justify-center mb-4">
+            <HelpCircle className="h-8 w-8 text-brand-gold mr-2" />
+            <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
+          </div>
+          <p className="text-gray-600">Find answers to common questions about our products and services</p>
+          <div className="w-20 h-1 bg-brand-green mx-auto mt-4"></div>
         </div>
         
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1" className="border border-brand-green rounded-lg mb-4 overflow-hidden">
-              <AccordionTrigger className="px-4 py-3 bg-gradient-to-r from-brand-green/10 to-brand-green/5 hover:bg-brand-green/20 flex items-center text-brand-green">
-                <div className="flex items-center">
-                  <HelpCircle className="h-5 w-5 mr-2 text-brand-gold" />
-                  <span className="text-lg font-semibold">What makes Saiksha gas stoves different from others in the market?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-3 bg-white border-t border-brand-green/20">
-                <p className="text-gray-700 pl-7">
-                  Saiksha gas stoves stand out due to their superior build quality with durable brass burners, efficient gas consumption, aesthetic design with toughened glass tops, and robust quality control standards. Our stoves are designed for both performance and safety, making them an excellent choice for modern kitchens.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border border-brand-gold rounded-lg mb-4 overflow-hidden">
-              <AccordionTrigger className="px-4 py-3 bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 hover:bg-brand-gold/20 flex items-center text-brand-gold">
-                <div className="flex items-center">
-                  <ShieldCheck className="h-5 w-5 mr-2 text-brand-green" />
-                  <span className="text-lg font-semibold">Are your products ISI certified?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-3 bg-white border-t border-brand-gold/20">
-                <p className="text-gray-700 pl-7">
-                  Yes, all our gas stoves are ISI certified, which ensures they meet the stringent safety and quality standards set by the Bureau of Indian Standards. This certification is a testament to our commitment to manufacturing high-quality and safe kitchen appliances.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border border-brand-green rounded-lg mb-4 overflow-hidden">
-              <AccordionTrigger className="px-4 py-3 bg-gradient-to-r from-brand-green/10 to-brand-green/5 hover:bg-brand-green/20 flex items-center text-brand-green">
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 mr-2 text-brand-gold" />
-                  <span className="text-lg font-semibold">What warranty do you offer on your products?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-3 bg-white border-t border-brand-green/20">
-                <p className="text-gray-700 pl-7">
-                  We offer a standard 1-year warranty on all our products against manufacturing defects. Premium models come with extended warranties of up to 3 years. Our warranty ensures that you get prompt service and support if any issues arise during the warranty period.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border border-brand-gold rounded-lg mb-4 overflow-hidden">
-              <AccordionTrigger className="px-4 py-3 bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 hover:bg-brand-gold/20 flex items-center text-brand-gold">
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 mr-2 text-brand-green" />
-                  <span className="text-lg font-semibold">Do you offer bulk orders for businesses?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-3 bg-white border-t border-brand-gold/20">
-                <p className="text-gray-700 pl-7">
-                  Yes, we cater to bulk orders for businesses, hotels, institutions, and corporate gifting. We offer competitive pricing for bulk orders and can customize products according to specific requirements. Please contact our sales team for more information on bulk orders and corporate partnerships.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5" className="border border-brand-green rounded-lg overflow-hidden">
-              <AccordionTrigger className="px-4 py-3 bg-gradient-to-r from-brand-green/10 to-brand-green/5 hover:bg-brand-green/20 flex items-center text-brand-green">
-                <div className="flex items-center">
-                  <Zap className="h-5 w-5 mr-2 text-brand-gold" />
-                  <span className="text-lg font-semibold">How can I get my product serviced?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-3 bg-white border-t border-brand-green/20">
-                <p className="text-gray-700 pl-7">
-                  For product service, you can reach out to our customer support team through phone, email, or by visiting our service center. We have a network of service centers across the country to ensure quick and efficient service. Our trained technicians will address your concerns promptly to minimize any inconvenience.
-                </p>
-              </AccordionContent>
-            </AccordionItem>
+            {faqs.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`}
+                className={`mb-4 border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-white`}
+              >
+                <AccordionTrigger className={`px-6 py-4 text-left text-lg font-medium text-${faq.color} hover:text-${faq.color}`}>
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4 text-gray-700 bg-white">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </div>
