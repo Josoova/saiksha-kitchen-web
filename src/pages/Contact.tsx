@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,18 +23,15 @@ const Contact = () => {
   
   useEffect(() => {
     if (comingFromProduct) {
-      // Focus on name field if coming from product page
       const nameInput = document.getElementById('name');
       if (nameInput) {
         nameInput.focus();
         
-        // Scroll to form section
         const formSection = document.querySelector('.contact-form-section');
         if (formSection) {
           formSection.scrollIntoView({ behavior: 'smooth' });
         }
         
-        // Show toast notification
         toast.info("Please fill out the form for a product quote.");
       }
     }
@@ -50,7 +46,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     setTimeout(() => {
       toast.success("Message sent successfully! We'll get back to you soon.");
       setFormData({
@@ -66,14 +61,11 @@ const Contact = () => {
 
   return (
     <div className="relative">
-      {/* Enhanced background pattern elements */}
       <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-        {/* Blob shapes */}
         <div className="absolute top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl blob-animation"></div>
         <div className="absolute -bottom-20 -left-40 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl blob-animation" style={{animationDelay: "2s"}}></div>
         <div className="absolute top-[60%] left-1/2 w-64 h-64 bg-brand-gold/5 rounded-full blur-2xl blob-animation" style={{animationDelay: "4s"}}></div>
         
-        {/* Wave pattern */}
         <div 
           className="absolute bottom-0 left-0 right-0 h-48 opacity-10 wave-animation" 
           style={{
@@ -85,7 +77,6 @@ const Contact = () => {
         ></div>
       </div>
 
-      {/* Hero Section with enhanced background image and overlay patterns */}
       <section 
         className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-20 overflow-hidden animate-fade-in"
         style={{
@@ -97,7 +88,6 @@ const Contact = () => {
       >
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         
-        {/* Overlay pattern */}
         <div 
           className="absolute inset-0 opacity-20 z-0" 
           style={{
@@ -114,14 +104,11 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form & Info Section */}
       <section className="py-16 contact-form-section relative z-10 bg-gradient-to-b from-white to-gray-50">
-        {/* Enhanced background pattern */}
         <div className="absolute inset-0 opacity-20 z-0 bg-pattern-dot"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <div className="animate-fade-in" style={{animationDelay: "150ms"}}>
               <Card className="backdrop-blur-sm bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 border-t-4 border-brand-green rounded-lg overflow-hidden">
                 <CardContent className="p-8">
@@ -220,7 +207,6 @@ const Contact = () => {
               </Card>
             </div>
             
-            {/* Contact Information with enhanced design */}
             <div className="animate-fade-in" style={{animationDelay: "300ms"}}>
               <h2 className="text-3xl font-bold mb-6 text-brand-green">Contact Information</h2>
               <div className="grid grid-cols-1 gap-6">
@@ -262,8 +248,8 @@ const Contact = () => {
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Phone</h3>
                         <p className="text-gray-600">
-                          Sales: +91 98765 43210<br />
-                          Support: +91 98765 43211<br />
+                          Sales: +91 8925873926<br />
+                          Support: +91 9629211841<br />
                           General: +91 22 1234 5678
                         </p>
                       </div>
@@ -278,7 +264,8 @@ const Contact = () => {
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Email</h3>
                         <p className="text-gray-600">
-                          info@saikshakitchen.com
+                          info@ska.ltd<br />
+                          sales1@ska.ltd
                         </p>
                       </div>
                     </div>
@@ -292,8 +279,7 @@ const Contact = () => {
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Working Hours</h3>
                         <p className="text-gray-600">
-                          Monday - Friday: 9:00 AM - 6:00 PM<br />
-                          Saturday: 10:00 AM - 4:00 PM<br />
+                          Monday - Saturday: 10:00 AM - 7:00 PM<br />
                           Sunday: Closed
                         </p>
                       </div>
@@ -306,9 +292,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section with enhanced design */}
       <section className="py-16 relative z-10 animate-fade-in" style={{animationDelay: "450ms"}}>
-        {/* Wave pattern at top of section */}
         <div 
           className="absolute top-0 left-0 right-0 h-20 opacity-10" 
           style={{
@@ -323,7 +307,6 @@ const Contact = () => {
           <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-100">
             <h2 className="text-3xl font-bold mb-8 text-center text-brand-green">Our Location</h2>
             <div className="h-96 bg-gray-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
-              {/* This is just a placeholder for a real map - you would integrate Google Maps or similar here */}
               <div className="w-full h-full flex items-center justify-center bg-gray-200 relative">
                 <div className="absolute inset-0 bg-pattern-grid opacity-30"></div>
                 <p className="text-gray-600 relative z-10 font-medium">Interactive Map Would Be Displayed Here</p>

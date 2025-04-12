@@ -117,7 +117,7 @@ const ZigzagFeature = () => {
             </div>
             
             <Button asChild className="bg-brand-green hover:bg-green-800 text-white">
-              <Link to="/products">View Collection</Link>
+              <Link to="/products?tab=kettles">Discover Kettles</Link>
             </Button>
           </div>
         </div>
