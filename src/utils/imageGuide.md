@@ -1,66 +1,77 @@
 
 # Image Size Guide for Saiksha Kitchen Appliances Website
 
-This guide provides recommended image sizes for each section of the website to ensure consistent quality and loading times.
-
 ## Global Image Guidelines
-- Format: Use modern formats like WebP or optimized JPG/PNG
-- Quality: 80-90% for JPG (balance between quality and file size)
-- Maximum file size: Keep under 500KB when possible
-- DPI: 72 for web use
+- Recommended Format: WebP (preferred), JPG, or PNG
+- Compression: Use modern compression techniques
+- Maximum file size: 
+  - Desktop images: 500KB
+  - Mobile images: 250KB
+- Color Profile: sRGB
+- Minimum Resolution: 72 DPI
+- Responsive Design: Provide multiple sizes for different devices
 
-## Header & Navigation
-- Logo: 200px × 80px (transparent PNG)
-- Header background: 1920px × 300px
+## Specific Image Size Recommendations
 
-## Home Page
-### Hero Carousel
-- Slide Images: 1920px × 800px (desktop)
-- Mobile slide images: 768px × 500px
+### Header & Logo
+- Logo (Header): 
+  - Desktop: 200px × 80px (transparent PNG)
+  - Mobile: 150px × 60px
+- Favicon: 32px × 32px
 
-### Featured Products
-- Product thumbnails: 600px × 400px
-- Background images: 1200px × 800px
+### Homepage Sections
 
-### Factory Overview
-- Video thumbnail: 800px × 450px (16:9 ratio)
-- Background images: 1200px × 600px
+#### Hero Carousel
+- Desktop Slides: 1920px × 800px
+  - File size: < 300KB
+- Mobile Slides: 768px × 500px
+  - File size: < 200KB
 
-### Why Choose Us
-- Icon images: 100px × 100px (square)
-- Background pattern: 400px × 400px (tileable)
+#### Featured Products
+- Product Thumbnails: 
+  - Main Image: 800px × 600px
+  - Hover/Alternate Views: 600px × 400px
+- Product Detail Images: 1200px × 900px
 
-### OEM Clients
-- Client logos: 200px × 100px (transparent PNG)
+#### OEM Clients Logo
+- Client Logos: 
+  - Width: 200px 
+  - Aspect Ratio: Keep original
+  - Transparent background preferred
 
-## Products Page
-- Hero banner: 1920px × 500px
-- Product images: 600px × 400px
-- Product detail images: 800px × 600px
+#### Certification Logos
+- Certification Marks: 
+  - Width: 150px
+  - Transparent background
+  - High contrast for readability
 
-## About Page
-- Hero banner: 1920px × 500px
-- Team member photos: 400px × 400px (square, 1:1 ratio)
-- Factory photos: 800px × 600px
+### Product Pages
+- Product Hero Banner: 1920px × 600px
+- Product Variant Images: 600px × 600px (square)
+- Zoom/Detailed Images: 1600px × 1200px
 
-## Contact Page
-- Hero banner: 1920px × 500px
-- Map image: 1200px × 600px (if not using interactive map)
+### About & Team Pages
+- Team Member Photos: 
+  - Square format: 400px × 400px
+  - Headshot style recommended
+- Factory/Workshop Images: 1200px × 800px
 
-## Decorative Elements
-- Wave patterns: SVG format (scalable)
-- Blob shapes: SVG format (scalable)
-- Background patterns: 200px × 200px (tileable)
+## Image Optimization Checklist
+1. Compress all images before uploading
+2. Use responsive image techniques (srcset, sizes)
+3. Implement lazy loading for below-the-fold images
+4. Add descriptive alt text for accessibility
+5. Use consistent aspect ratios within sections
+6. Maintain visual hierarchy and quality
 
-## Footer
-- Footer logo: 150px × 60px
-- Social media icons: 30px × 30px
+## Recommended Tools
+- WebP compression: Squoosh.app
+- Image resizing: Sharp (npm package)
+- Lazy loading: Native browser lazy loading or React libraries
 
-## Best Practices
-1. Always compress images before uploading
-2. Use responsive image techniques
-3. Consider lazy loading for below-the-fold images
-4. Maintain consistent aspect ratios within each section
-5. Use alt text for all images for accessibility
+## Performance Tips
+- Use CSS background images for decorative elements
+- Prefer SVG for icons and simple graphics
+- Consider using image CDNs for faster loading
 
-Note: These are recommended sizes that may need adjustment based on specific design requirements and content.
+Note: These guidelines are recommendations. Adjust based on specific design requirements and content needs.
