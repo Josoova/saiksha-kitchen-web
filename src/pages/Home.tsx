@@ -14,14 +14,14 @@ const Home = () => {
       {/* Content with z-index to stay above the background elements */}
       <div className="relative z-10">
         <HeroCarousel />
-        <div className="bg-gradient-to-b from-slate-50 via-white to-slate-100">
+        <div className="bg-gradient-to-b from-blue-50 via-white to-gray-100">
           <FeaturedProducts />
         </div>
         <FactoryOverview />
-        <div className="bg-gradient-to-r from-gray-50 to-slate-100">
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50">
           <ZigzagFeature />
         </div>
-        <div className="py-10 bg-gradient-to-b from-white to-gray-50">
+        <div className="py-10 bg-gradient-to-b from-white to-green-50">
           <div className="container mx-auto px-4 text-center">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 animate-fade-in">
               {/* ISO Certification */}
@@ -40,13 +40,13 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="bg-pattern-dot py-1 bg-gradient-to-b from-gray-50 to-white"> {/* Separator with pattern */}
+        <div className="bg-pattern-dot py-1 bg-gradient-to-b from-purple-50 to-indigo-50"> {/* Updated background */}
           <WhyChooseUs />
         </div>
-        <div className="bg-gradient-to-b from-white to-gray-50">
+        <div className="bg-gradient-to-b from-rose-50 to-yellow-50">
           <OEMClients />
         </div>
-        <div className="bg-gradient-to-r from-gray-50 to-slate-100">
+        <div className="bg-gradient-to-r from-cyan-50 to-blue-50">
           <FAQ />
         </div>
       </div>

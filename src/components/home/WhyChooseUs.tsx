@@ -64,13 +64,13 @@ const WhyChooseUs = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`text-center p-8 bg-white rounded-xl shadow-lg transition-all duration-500 ${
+              className={`text-center p-8 bg-white rounded-xl shadow-lg transition-all duration-700 ${
                 hoveredIndex === index ? 'transform -translate-y-4' : ''
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className={`${feature.color} h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-700 ${
+              <div className={`${feature.color} h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-1000 ${
                 hoveredIndex === index ? 'transform scale-110' : ''
               }`}>
                 <feature.icon className="h-10 w-10 text-white" />

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLocation } from 'react-router-dom';
+import { PhoneInput } from '@/components/contact/PhoneInput';
 
 const Contact = () => {
   const location = useLocation();
@@ -40,6 +42,10 @@ const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setFormData(prev => ({ ...prev, phone: value }));
   };
   
   const handleSubmit = (e: React.FormEvent) => {
@@ -104,7 +110,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-16 contact-form-section relative z-10 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-16 contact-form-section relative z-10 bg-gradient-to-b from-white to-blue-50">
         <div className="absolute inset-0 opacity-20 z-0 bg-pattern-dot"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -153,12 +159,9 @@ const Contact = () => {
                         <label htmlFor="phone" className="block mb-2 font-medium">
                           Phone Number
                         </label>
-                        <Input
-                          id="phone"
-                          name="phone"
+                        <PhoneInput
                           value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="Your phone number"
+                          onChange={handlePhoneChange}
                           className="transition-all duration-300 focus:border-brand-green focus:ring-brand-green"
                         />
                       </div>
@@ -292,7 +295,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-16 relative z-10 animate-fade-in" style={{animationDelay: "450ms"}}>
+      <section className="py-16 relative z-10 animate-fade-in bg-gradient-to-b from-blue-50 to-indigo-50" style={{animationDelay: "450ms"}}>
         <div 
           className="absolute top-0 left-0 right-0 h-20 opacity-10" 
           style={{
@@ -302,7 +305,6 @@ const Contact = () => {
           }}
         ></div>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white z-0"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-100">
             <h2 className="text-3xl font-bold mb-8 text-center text-brand-green">Our Location</h2>

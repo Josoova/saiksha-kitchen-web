@@ -136,12 +136,17 @@ const gasStoveSpecs = {
   ]
 };
 
-// Kettle specifications
+// Kettle specifications - updated with Mirror and Matt finish feature
 const kettleSpecs = [
   { 
     id: "k1", 
     name: "Electric Kettle 1.5L", 
-    features: ["1.5L Capacity", "Auto Shutoff", "Boil-Dry Protection"],
+    features: [
+      "1.5L Capacity", 
+      "Auto Shutoff", 
+      "Boil-Dry Protection", 
+      "Mirror and Matt Finish"
+    ],
     image: "public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png",
     rating: 4.8,
     isBestseller: true
@@ -149,14 +154,24 @@ const kettleSpecs = [
   { 
     id: "k2", 
     name: "Electric Kettle 1.8L", 
-    features: ["1.8L Capacity", "LED Indicator", "Cordless Design"],
+    features: [
+      "1.8L Capacity", 
+      "LED Indicator", 
+      "Cordless Design", 
+      "Mirror and Matt Finish"
+    ],
     image: "public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png",
     rating: 4.6
   },
   { 
     id: "k3", 
     name: "Multi Kettle", 
-    features: ["Variable Temperature Control", "Keep Warm Function", "Digital Display"],
+    features: [
+      "Variable Temperature Control", 
+      "Keep Warm Function", 
+      "Digital Display", 
+      "Premium Mirror and Matt Finish"
+    ],
     image: "public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png",
     rating: 4.9,
     isNewArrival: true
@@ -289,7 +304,7 @@ const Products = () => {
         </div>
       </section>
 
-      <section className="py-16 relative z-10 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-16 relative z-10 bg-gradient-to-b from-white to-amber-50">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="gas-stoves" className="w-full" onValueChange={(value) => setActiveTab(value as ProductCategory)}>
             <div className="text-center mb-8">
@@ -358,7 +373,7 @@ const Products = () => {
         </div>
       </section>
 
-      <section className="py-16 relative animate-fade-in bg-gray-50" style={{animationDelay: "450ms"}}>
+      <section className="py-16 relative animate-fade-in bg-gradient-to-b from-amber-50 to-green-50" style={{animationDelay: "450ms"}}>
         <div className="container mx-auto px-4 text-center relative z-10 mt-10">
           <div className="bg-white p-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all border-t-4 border-brand-green">
             <h2 className="text-3xl font-bold mb-6 text-brand-green">Product Support</h2>
