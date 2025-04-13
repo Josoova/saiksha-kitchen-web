@@ -61,8 +61,16 @@ const Footer = () => {
                 <span>Support: +91 9629211841</span>
               </div>
               <div className="flex items-center">
+                <Phone className="h-5 w-5 mr-2 text-brand-gold" />
+                <span>General: +91 22 1234 5678</span>
+              </div>
+              <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-brand-gold" />
                 <span>info@ska.ltd</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="h-5 w-5 mr-2 text-brand-gold" />
+                <span>sales1@ska.ltd</span>
               </div>
             </div>
           </div>
@@ -81,8 +89,8 @@ const Footer = () => {
               <div className="flex items-center bg-white/10 p-3 rounded-lg hover:bg-white/20 transition-colors">
                 <Award className="h-8 w-8 mr-3 text-white" />
                 <div>
-                  <p className="font-medium">PIS Certified</p>
-                  <p className="text-sm text-gray-200">Product Information System</p>
+                  <p className="font-medium">BIS Certified</p>
+                  <p className="text-sm text-gray-200">Bureau of Indian Standards</p>
                 </div>
               </div>
             </div>

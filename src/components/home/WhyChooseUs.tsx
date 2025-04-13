@@ -46,7 +46,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 animate-fade-in relative" style={{animationDelay: "750ms"}}>
+    <section className="py-20 animate-fade-in relative bg-white" style={{animationDelay: "750ms"}}>
       {/* Background Graphic Effects */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute top-20 -right-40 w-80 h-80 bg-brand-green/5 rounded-full blur-3xl"></div>
@@ -64,13 +64,13 @@ const WhyChooseUs = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`text-center p-8 bg-white rounded-xl shadow-lg transition-all duration-300 ${
+              className={`text-center p-8 bg-white rounded-xl shadow-lg transition-all duration-500 ${
                 hoveredIndex === index ? 'transform -translate-y-4' : ''
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className={`${feature.color} h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg animate-pulse transition-transform duration-300 ${
+              <div className={`${feature.color} h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg transition-transform duration-700 ${
                 hoveredIndex === index ? 'transform scale-110' : ''
               }`}>
                 <feature.icon className="h-10 w-10 text-white" />
