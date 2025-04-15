@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -10,7 +11,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from '@/components/ui/carousel';
-import { Star, ArrowLeft, Award, TrendingUp, CheckCircle } from 'lucide-react';
+import { Star, ArrowLeft, Award, TrendingUp } from 'lucide-react';
 import { gasStoveSpecs, kettleSpecs } from '@/data/products';
 
 const renderRatingStars = (rating: number) => {
@@ -153,11 +154,11 @@ const ProductDetail = () => {
                   className={`p-1 rounded-md hover:border-brand-green ${activeImage === idx+1 ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
                   onClick={() => handleThumbnailClick(idx+1)}
                 >
-                  <img 
-                    src={product.image}
-                    alt={angle.alt} 
-                    className="h-16 w-16 object-cover opacity-80" 
-                  />
+                  <div className="h-16 w-16 flex items-center justify-center">
+                    <div className="text-xs text-center text-gray-600">
+                      {angle.alt}
+                    </div>
+                  </div>
                 </button>
               ))}
             </div>
@@ -193,8 +194,8 @@ const ProductDetail = () => {
                 <h3 className="text-xl font-bold mb-4 text-brand-green border-b border-amber-200 pb-2">Key Features:</h3>
                 <ul className="grid grid-cols-1 gap-4">
                   {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-start bg-white p-3 rounded-md shadow-sm">
-                      <CheckCircle className="h-5 w-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                    <li key={index} className="flex items-start">
+                      <span className="text-brand-green mr-2">•</span>
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}

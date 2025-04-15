@@ -91,6 +91,7 @@ const OEMClients = () => {
                           src={client.logo}
                           alt={`${client.name} logo`}
                           className="h-full max-h-24 object-contain animate-pulse"
+                          style={{animation: "pulse 3s infinite"}}
                         />
                         <p className="mt-4 font-medium text-gray-700">{client.name}</p>
                       </div>

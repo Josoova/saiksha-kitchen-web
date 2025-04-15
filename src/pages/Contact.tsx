@@ -12,7 +12,8 @@ import {
   MapPin, 
   Clock, 
   Send, 
-  CheckCircle 
+  CheckCircle,
+  Building
 } from "lucide-react";
 import { PhoneInput } from "@/components/contact/PhoneInput";
 import GoogleMap from '@/components/contact/GoogleMap';
@@ -104,11 +105,21 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="bg-brand-green rounded-full p-2 mt-1">
+                      <Building className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900">Head Office</h3>
+                      <p className="text-gray-700">No. 147, 2nd Floor, GN Chetty Road,<br />T Nagar, Chennai - 600017</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-brand-green rounded-full p-2 mt-1">
                       <MapPin className="h-5 w-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Address</h3>
-                      <p className="text-gray-700">81K Thiruvalluvar Street, Athipet, Chennai, Tamil Nadu 600058</p>
+                      <h3 className="font-semibold text-gray-900">Works</h3>
+                      <p className="text-gray-700">Survey no 150/16A, 150/16B2, 150/16C,<br />Panakattukupam Village,<br />Vandalur Taluk, Chengalpattu - 600048</p>
                     </div>
                   </div>
                   
@@ -146,7 +157,7 @@ const Contact = () => {
                 
                 {/* Google Map */}
                 <div className="mt-8">
-                  <GoogleMap address="81K Thiruvalluvar Street, Athipet, Chennai, Tamil Nadu 600058" height="250px" />
+                  <GoogleMap address="Survey no 150/16A, 150/16B2, 150/16C, Panakattukupam Village, Vandalur Taluk, Chengalpattu - 600048" height="250px" />
                 </div>
               </Card>
             </div>

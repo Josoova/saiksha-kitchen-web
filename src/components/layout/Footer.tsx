@@ -61,16 +61,8 @@ const Footer = () => {
                 <span>Support: +91 9629211841</span>
               </div>
               <div className="flex items-center">
-                <Phone className="h-5 w-5 mr-2 text-brand-gold" />
-                <span>General: +91 22 1234 5678</span>
-              </div>
-              <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-brand-gold" />
                 <span>info@ska.ltd</span>
-              </div>
-              <div className="flex items-center">
-                <Mail className="h-5 w-5 mr-2 text-brand-gold" />
-                <span>sales1@ska.ltd</span>
               </div>
             </div>
           </div>
