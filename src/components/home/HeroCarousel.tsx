@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { 
@@ -16,7 +15,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (autoPlay) {
-        const nextButton = document.querySelector('.embla__button--next') as HTMLButtonElement;
+        const nextButton = document.querySelector('.hero-carousel .embla__button--next') as HTMLButtonElement;
         if (nextButton) nextButton.click();
       }
     }, 5000);
@@ -31,7 +30,7 @@ const HeroCarousel = () => {
           loop: true,
           align: "start",
         }}
-        className="w-full"
+        className="w-full hero-carousel"
         onMouseEnter={() => setAutoPlay(false)}
         onMouseLeave={() => setAutoPlay(true)}
       >

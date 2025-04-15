@@ -53,7 +53,7 @@ const ZigzagFeature = () => {
             </Button>
           </div>
           <div className="md:w-1/2 order-1 md:order-2">
-            <div className="relative group hover-scale">
+            <div className="relative group hover-scale transform transition-all duration-1000 hover:translate-x-2 animate-slide-in-right">
               <img 
                 src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" 
                 alt="Premium Gas Stove" 
@@ -71,7 +71,7 @@ const ZigzagFeature = () => {
         {/* Second Zigzag Row */}
         <div className="flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-1/2">
-            <div className="relative group hover-scale">
+            <div className="relative group hover-scale transform transition-all duration-1000 hover:translate-x-2 animate-slide-in-right">
               <img 
                 src="public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png" 
                 alt="Electric Kettle" 

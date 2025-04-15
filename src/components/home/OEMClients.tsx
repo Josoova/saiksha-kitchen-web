@@ -18,7 +18,7 @@ const OEMClients = () => {
         const nextButton = document.querySelector('.client-carousel .embla__button--next') as HTMLButtonElement;
         if (nextButton) nextButton.click();
       }
-    }, 3000);
+    }, 2000); // Faster scrolling (2 seconds)
     
     return () => clearInterval(interval);
   }, [autoPlay]);
@@ -28,7 +28,10 @@ const OEMClients = () => {
     { name: "Premier", logo: "public/lovable-uploads/365208f2-ccbc-4d31-9233-da5887f389b8.png" },
     { name: "Thangam", logo: "public/lovable-uploads/500b1e70-f84a-4ac7-b409-5df61ce5823d.png" },
     { name: "Butterfly", logo: "public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" },
-    { name: "Prestige", logo: "public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png" }
+    { name: "Prestige", logo: "public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png" },
+    { name: "Twinbirds", logo: "public/lovable-uploads/44e90ac6-77dd-4cb4-b53b-64c6ce6eea43.png" },
+    { name: "Easy", logo: "public/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png" },
+    { name: "Diamond", logo: "public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png" }
   ];
 
   return (
