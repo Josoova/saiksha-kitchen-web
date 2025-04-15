@@ -66,17 +66,6 @@ const Products = () => {
         <h4 className="text-xl font-bold mb-2">{spec.name}</h4>
         <div className="mb-2">{renderRatingStars(spec.rating)}</div>
         <p className="text-gray-700 mb-3">Glass Size: {spec.size}</p>
-        <div className="mb-4">
-          <h5 className="font-semibold mb-2">Features:</h5>
-          <ul className="list-disc list-inside text-gray-600">
-            {spec.features.map((feature, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="h-4 w-4 text-brand-green mr-2 mt-1 flex-shrink-0" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
       </CardContent>
       <CardFooter className="px-6 pb-6 pt-0">
         <Button 
@@ -120,17 +109,6 @@ const Products = () => {
       <CardContent className="p-6">
         <h4 className="text-xl font-bold mb-2">{spec.name}</h4>
         <div className="mb-2">{renderRatingStars(spec.rating)}</div>
-        <div className="mb-4">
-          <h5 className="font-semibold mb-2">Features:</h5>
-          <ul className="list-disc list-inside text-gray-600">
-            {spec.features.map((feature: string, index: number) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="h-4 w-4 text-brand-green mr-2 mt-1 flex-shrink-0" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
       </CardContent>
       <CardFooter className="px-6 pb-6 pt-0">
         <Button 

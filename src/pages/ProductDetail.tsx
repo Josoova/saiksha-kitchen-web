@@ -92,6 +92,15 @@ const ProductDetail = () => {
     );
   }
 
+  // Create image array
+  const productImages = [
+    { src: product.image, alt: product.name },
+    ...angleImages.map(angle => ({
+      src: product.image,
+      alt: `${product.name} - ${angle.alt}`
+    }))
+  ];
+
   return (
     <div className="bg-gradient-to-b from-white to-amber-50 min-h-screen">
       <div className="container mx-auto px-4 py-12">
@@ -105,36 +114,18 @@ const ProductDetail = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 animate-fade-in">
           <div className="bg-white p-6 rounded-2xl shadow-md">
-            <Carousel className="w-full max-w-lg mx-auto">
-              <CarouselContent>
-                <CarouselItem key="main">
-                  <div className="flex items-center justify-center h-80 p-2">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="max-h-full object-contain"
-                    />
-                  </div>
-                </CarouselItem>
-                
-                {angleImages.map((angle) => (
-                  <CarouselItem key={angle.id}>
-                    <div className="flex items-center justify-center h-80 p-2">
-                      <img 
-                        src={product.image} 
-                        alt={`${product.name} - ${angle.alt}`} 
-                        className="max-h-full object-contain"
-                      />
-                      <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
-                        {angle.alt}
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2 bg-white/80" />
-              <CarouselNext className="right-2 bg-white/80" />
-            </Carousel>
+            <div className="relative">
+              <img 
+                src={productImages[activeImage].src} 
+                alt={productImages[activeImage].alt} 
+                className="max-h-80 w-full object-contain mb-6"
+              />
+              {activeImage > 0 && (
+                <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                  {angleImages[activeImage-1].alt}
+                </div>
+              )}
+            </div>
             
             <div className="flex justify-center gap-3 mt-6">
               <button 
@@ -189,18 +180,6 @@ const ProductDetail = () => {
                   <p className="text-gray-700">{product.size}</p>
                 </div>
               )}
-
-              <div className="bg-amber-50 p-6 rounded-md shadow-sm border border-amber-100">
-                <h3 className="text-xl font-bold mb-4 text-brand-green border-b border-amber-200 pb-2">Key Features:</h3>
-                <ul className="grid grid-cols-1 gap-4">
-                  {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-brand-green mr-2">•</span>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
               <div className="bg-blue-50 p-4 rounded-md">
                 <h3 className="font-semibold text-lg mb-3">Specifications:</h3>
