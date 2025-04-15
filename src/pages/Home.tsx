@@ -31,7 +31,7 @@ const Home = () => {
                 <p className="text-gray-600 text-center">Quality Management System</p>
               </div>
               
-              {/* BIS Certification - Corrected from PIS */}
+              {/* BIS Certification */}
               <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all hover:-translate-y-1">
                 <Award className="h-12 w-12 text-brand-gold mb-3" />
                 <h3 className="text-xl font-bold mb-2 text-brand-gold">BIS Certified</h3>
@@ -55,4 +55,3 @@ const Home = () => {
 };
 
 export default Home;
-

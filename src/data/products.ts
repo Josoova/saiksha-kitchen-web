@@ -114,7 +114,7 @@ export const gasStoveSpecs: {
   ]
 };
 
-// Kettle specifications
+// Kettle specifications with Mirror and Matt Finish feature added to all kettles
 export const kettleSpecs: KettleSpec[] = [
   { 
     id: "k1", 

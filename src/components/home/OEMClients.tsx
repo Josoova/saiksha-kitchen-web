@@ -90,7 +90,7 @@ const OEMClients = () => {
                         <img
                           src={client.logo}
                           alt={`${client.name} logo`}
-                          className="h-full max-h-24 object-contain"
+                          className="h-full max-h-24 object-contain animate-pulse"
                         />
                         <p className="mt-4 font-medium text-gray-700">{client.name}</p>
                       </div>

@@ -13,7 +13,6 @@ import {
 import { Star, ArrowLeft, Award, TrendingUp, CheckCircle } from 'lucide-react';
 import { gasStoveSpecs, kettleSpecs } from '@/data/products';
 
-// Helper function to render rating stars
 const renderRatingStars = (rating: number) => {
   return (
     <div className="flex items-center">
@@ -33,8 +32,8 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [activeImage, setActiveImage] = useState(0);
   
-  // Dummy angle images (in a real app, these would come from the backend)
   const angleImages = [
     { id: 1, alt: 'Front view' },
     { id: 2, alt: 'Side view' },
@@ -43,11 +42,9 @@ const ProductDetail = () => {
   ];
 
   useEffect(() => {
-    // Find the product based on category and id
     let foundProduct = null;
 
     if (category === 'gas-stoves') {
-      // Check in all gas stove categories
       ['twoBurner', 'threeBurner', 'fourBurner'].forEach(burnerType => {
         const found = gasStoveSpecs[burnerType]?.find(stove => stove.id === productId);
         if (found) foundProduct = found;
@@ -68,6 +65,10 @@ const ProductDetail = () => {
 
   const goBack = () => {
     navigate('/products');
+  };
+
+  const handleThumbnailClick = (index: number) => {
+    setActiveImage(index);
   };
 
   if (loading) {
@@ -93,7 +94,6 @@ const ProductDetail = () => {
   return (
     <div className="bg-gradient-to-b from-white to-amber-50 min-h-screen">
       <div className="container mx-auto px-4 py-12">
-        {/* Back button */}
         <Button 
           onClick={goBack} 
           variant="ghost" 
@@ -103,11 +103,9 @@ const ProductDetail = () => {
         </Button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 animate-fade-in">
-          {/* Product Images Carousel */}
           <div className="bg-white p-6 rounded-2xl shadow-md">
             <Carousel className="w-full max-w-lg mx-auto">
               <CarouselContent>
-                {/* Main product image */}
                 <CarouselItem key="main">
                   <div className="flex items-center justify-center h-80 p-2">
                     <img 
@@ -118,7 +116,6 @@ const ProductDetail = () => {
                   </div>
                 </CarouselItem>
                 
-                {/* Additional angle images - using the main image as placeholder */}
                 {angleImages.map((angle) => (
                   <CarouselItem key={angle.id}>
                     <div className="flex items-center justify-center h-80 p-2">
@@ -138,10 +135,11 @@ const ProductDetail = () => {
               <CarouselNext className="right-2 bg-white/80" />
             </Carousel>
             
-            {/* Thumbnail navigation */}
             <div className="flex justify-center gap-3 mt-6">
-              {/* Main image thumbnail */}
-              <button className="border-2 border-brand-green p-1 rounded-md hover:opacity-80">
+              <button 
+                className={`p-1 rounded-md hover:opacity-80 ${activeImage === 0 ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
+                onClick={() => handleThumbnailClick(0)}
+              >
                 <img 
                   src={product.image} 
                   alt="Main view" 
@@ -149,9 +147,12 @@ const ProductDetail = () => {
                 />
               </button>
               
-              {/* Other angle thumbnails */}
-              {angleImages.map((angle) => (
-                <button key={angle.id} className="border-2 border-gray-200 p-1 rounded-md hover:border-brand-green">
+              {angleImages.map((angle, idx) => (
+                <button 
+                  key={angle.id} 
+                  className={`p-1 rounded-md hover:border-brand-green ${activeImage === idx+1 ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
+                  onClick={() => handleThumbnailClick(idx+1)}
+                >
                   <img 
                     src={product.image}
                     alt={angle.alt} 
@@ -162,7 +163,6 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          {/* Product Details */}
           <div className="flex flex-col">
             <div className="flex flex-col gap-6">
               <div>
@@ -182,7 +182,6 @@ const ProductDetail = () => {
                 <div className="mb-4">{renderRatingStars(product.rating)}</div>
               </div>
 
-              {/* Size for Gas Stoves */}
               {category === 'gas-stoves' && product.size && (
                 <div className="bg-green-50 p-4 rounded-md">
                   <h3 className="font-semibold text-lg mb-2">Glass Size:</h3>
@@ -190,20 +189,18 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {/* Features */}
-              <div className="bg-amber-50 p-4 rounded-md">
-                <h3 className="font-semibold text-lg mb-3">Features:</h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-amber-50 p-6 rounded-md shadow-sm border border-amber-100">
+                <h3 className="text-xl font-bold mb-4 text-brand-green border-b border-amber-200 pb-2">Key Features:</h3>
+                <ul className="grid grid-cols-1 gap-4">
                   {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-brand-green mr-2 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
+                    <li key={index} className="flex items-start bg-white p-3 rounded-md shadow-sm">
+                      <CheckCircle className="h-5 w-5 text-brand-green mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Specifications */}
               <div className="bg-blue-50 p-4 rounded-md">
                 <h3 className="font-semibold text-lg mb-3">Specifications:</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -248,7 +245,6 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              {/* Call to action */}
               <div className="mt-6">
                 <Button
                   onClick={handleRequestQuote}
