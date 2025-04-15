@@ -14,7 +14,7 @@ import {
   Send, 
   CheckCircle 
 } from "lucide-react";
-import PhoneInput from "@/components/contact/PhoneInput";
+import { PhoneInput } from "@/components/contact/PhoneInput";
 import GoogleMap from '@/components/contact/GoogleMap';
 
 const Contact = () => {
