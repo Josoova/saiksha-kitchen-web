@@ -8,20 +8,12 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel';
 import { useState, useEffect } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const HeroCarousel = () => {
   const [autoPlay, setAutoPlay] = useState(true);
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (autoPlay) {
-        const nextButton = document.querySelector('.hero-carousel .embla__button--next') as HTMLButtonElement;
-        if (nextButton) nextButton.click();
-      }
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [autoPlay]);
+  const plugin = Autoplay({ delay: 5000, stopOnInteraction: false });
 
   return (
     <section className="relative animate-fade-in">
@@ -30,33 +22,32 @@ const HeroCarousel = () => {
           loop: true,
           align: "start",
         }}
+        plugins={[plugin]}
         className="w-full hero-carousel"
         onMouseEnter={() => setAutoPlay(false)}
         onMouseLeave={() => setAutoPlay(true)}
       >
         <CarouselContent>
-          {/* Slide 1 */}
+          {/* Slide 1 - Gas Stove */}
           <CarouselItem className="w-full">
             <div className="relative h-[600px] md:h-[700px] flex items-center">
-              {/* Background Image with Overlay */}
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 z-10"></div>
                 <img 
-                  src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" 
-                  alt="Modern Kitchen" 
+                  src="/lovable-uploads/54a0e169-8b36-48e0-99c1-bdce5cf9052a.png" 
+                  alt="Modern Gas Stove" 
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Content */}
               <div className="container mx-auto px-4 relative z-20">
                 <div className="max-w-2xl text-white">
                   <span className="inline-block px-4 py-1 mb-5 bg-brand-gold text-white text-sm font-semibold rounded-full animate-scale-in">Premium Quality</span>
                   <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-enter">
-                    Modern Kitchen Appliances for Your Home
+                    Modern Kitchen Gas Stoves
                   </h1>
                   <p className="text-lg md:text-xl mb-8 text-gray-100">
-                    Discover our range of high-quality gas stoves and kettles designed for efficiency, durability, and style.
+                    Experience the perfect blend of efficiency and style with our premium gas stoves.
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <Button asChild className="bg-brand-gold hover:bg-amber-600 text-white animate-scale-in text-lg px-8 py-6">
@@ -71,35 +62,33 @@ const HeroCarousel = () => {
             </div>
           </CarouselItem>
           
-          {/* Slide 2 */}
+          {/* Slide 2 - Electric Kettles */}
           <CarouselItem className="w-full">
             <div className="relative h-[600px] md:h-[700px] flex items-center">
-              {/* Background Image with Overlay */}
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 z-10"></div>
                 <img 
-                  src="public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png" 
-                  alt="Factory" 
+                  src="/lovable-uploads/4143d39e-bb59-481c-b1b6-3566d5d46205.png" 
+                  alt="Electric Kettles" 
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Content */}
               <div className="container mx-auto px-4 relative z-20">
                 <div className="max-w-2xl text-white">
-                  <span className="inline-block px-4 py-1 mb-5 bg-brand-green text-white text-sm font-semibold rounded-full animate-scale-in">Indian Craftsmanship</span>
+                  <span className="inline-block px-4 py-1 mb-5 bg-brand-green text-white text-sm font-semibold rounded-full animate-scale-in">New Collection</span>
                   <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-enter">
-                    India's Leading Kitchen Appliance Manufacturer
+                    Advanced Electric Kettles
                   </h1>
                   <p className="text-lg md:text-xl mb-8 text-gray-100">
-                    With state-of-the-art manufacturing facilities and a commitment to quality, we deliver excellence in every product.
+                    Discover our range of electric kettles with smart features for your modern kitchen needs.
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <Button asChild className="bg-brand-green hover:bg-green-800 text-white animate-scale-in text-lg px-8 py-6">
-                      <Link to="/about">Our Story</Link>
+                      <Link to="/products?tab=kettles">Shop Kettles</Link>
                     </Button>
                     <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-green animate-scale-in text-lg px-8 py-6" style={{animationDelay: "150ms"}}>
-                      <Link to="/products">View Products</Link>
+                      <Link to="/contact">Get a Quote</Link>
                     </Button>
                   </div>
                 </div>
