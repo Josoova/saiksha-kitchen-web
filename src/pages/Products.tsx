@@ -7,10 +7,8 @@ import { Star, Info, CheckCircle, MapPin, Mail, Award, TrendingUp, Flame } from 
 import { useNavigate } from 'react-router-dom';
 import { gasStoveSpecs, kettleSpecs } from '@/data/products';
 
-// Product types
 type ProductCategory = 'gas-stoves' | 'kettles';
 
-// Helper function to render rating stars
 const renderRatingStars = (rating: number) => {
   return (
     <div className="flex items-center">
@@ -128,15 +126,16 @@ const Products = () => {
     <div className="relative">
       <section 
         className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-20 overflow-hidden animate-fade-in"
-        style={{
-          backgroundImage: 'url(public/lovable-uploads/500b1e70-f84a-4ac7-b409-5df61ce5823d.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay'
-        }}
       >
-        <div className="absolute inset-0 bg-black/40 z-0"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/4bc61102-1ca7-45f2-ad90-5f2078c505ca.png" 
+            alt="Kitchen Appliances Collection" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50 z-10"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-20">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-shadow animate-scale-in">
             Our Premium Products
           </h1>
