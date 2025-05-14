@@ -35,12 +35,24 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
   
-  const angleImages = [
-    { id: 1, alt: 'Front view' },
-    { id: 2, alt: 'Side view' },
-    { id: 3, alt: 'Top view' },
-    { id: 4, alt: 'Detail view' }
-  ];
+  // Custom angle images for the Electric Kettle 1.8L product
+  const getAngleImages = (productId: string) => {
+    if (productId === 'k2') {
+      return [
+        { id: 1, src: '/lovable-uploads/b0eccf25-8691-44cc-b402-bf6655ed2289.png', alt: 'Front view' },
+        { id: 2, src: '/lovable-uploads/a8e97c38-4cc0-4b0e-9b21-eada3898da34.png', alt: 'Side view with Cool Touch Handle' },
+        { id: 3, src: '/lovable-uploads/71c144d8-1b17-4de4-b700-f2d45c3f6aeb.png', alt: 'Top view (Open)' },
+        { id: 4, src: '/lovable-uploads/c994ea06-a5ce-4656-8f36-6d758469ede1.png', alt: 'Feature view' }
+      ];
+    }
+    
+    return [
+      { id: 1, alt: 'Front view' },
+      { id: 2, alt: 'Side view' },
+      { id: 3, alt: 'Top view' },
+      { id: 4, alt: 'Detail view' }
+    ];
+  };
 
   useEffect(() => {
     let foundProduct = null;
@@ -92,14 +104,21 @@ const ProductDetail = () => {
     );
   }
 
+  const angleImages = getAngleImages(productId || '');
+  
   // Create image array
-  const productImages = [
-    { src: product.image, alt: product.name },
-    ...angleImages.map(angle => ({
-      src: product.image,
-      alt: `${product.name} - ${angle.alt}`
-    }))
-  ];
+  const productImages = productId === 'k2' ? 
+    angleImages.map(angle => ({
+      src: angle.src || product.image,
+      alt: angle.alt
+    })) : 
+    [
+      { src: product.image, alt: product.name },
+      ...angleImages.map(angle => ({
+        src: product.image,
+        alt: `${product.name} - ${angle.alt}`
+      }))
+    ];
 
   return (
     <div className="bg-gradient-to-b from-white to-amber-50 min-h-screen">
@@ -120,36 +139,31 @@ const ProductDetail = () => {
                 alt={productImages[activeImage].alt} 
                 className="max-h-80 w-full object-contain mb-6"
               />
-              {activeImage > 0 && (
-                <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
-                  {angleImages[activeImage-1].alt}
-                </div>
-              )}
+              <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                {productImages[activeImage].alt}
+              </div>
             </div>
             
             <div className="flex justify-center gap-3 mt-6">
-              <button 
-                className={`p-1 rounded-md hover:opacity-80 ${activeImage === 0 ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
-                onClick={() => handleThumbnailClick(0)}
-              >
-                <img 
-                  src={product.image} 
-                  alt="Main view" 
-                  className="h-16 w-16 object-cover" 
-                />
-              </button>
-              
-              {angleImages.map((angle, idx) => (
+              {productImages.map((image, idx) => (
                 <button 
-                  key={angle.id} 
-                  className={`p-1 rounded-md hover:border-brand-green ${activeImage === idx+1 ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
-                  onClick={() => handleThumbnailClick(idx+1)}
+                  key={idx} 
+                  className={`p-1 rounded-md hover:opacity-80 ${activeImage === idx ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
+                  onClick={() => handleThumbnailClick(idx)}
                 >
-                  <div className="h-16 w-16 flex items-center justify-center">
-                    <div className="text-xs text-center text-gray-600">
-                      {angle.alt}
+                  {productId === 'k2' ? (
+                    <img 
+                      src={image.src} 
+                      alt={image.alt} 
+                      className="h-16 w-16 object-cover" 
+                    />
+                  ) : (
+                    <div className="h-16 w-16 flex items-center justify-center">
+                      <div className="text-xs text-center text-gray-600">
+                        {image.alt.replace(`${product.name} - `, '')}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </button>
               ))}
             </div>
@@ -178,6 +192,20 @@ const ProductDetail = () => {
                 <div className="bg-green-50 p-4 rounded-md">
                   <h3 className="font-semibold text-lg mb-2">Glass Size:</h3>
                   <p className="text-gray-700">{product.size}</p>
+                </div>
+              )}
+
+              {category === 'kettles' && productId === 'k2' && (
+                <div className="bg-amber-50 p-4 rounded-md mb-4">
+                  <h3 className="font-semibold text-lg mb-2">Key Features:</h3>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>Food grade stainless steel body</li>
+                    <li>Spill proof design</li>
+                    <li>Cool touch handles for safety</li>
+                    <li>Power efficient operation</li>
+                    <li>Can boil up to 6 cups of water</li>
+                    <li>1.8L Capacity</li>
+                  </ul>
                 </div>
               )}
 
