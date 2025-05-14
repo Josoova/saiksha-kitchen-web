@@ -39,10 +39,11 @@ const ProductDetail = () => {
   const getAngleImages = (productId: string) => {
     if (productId === 'k2') {
       return [
-        { id: 1, src: '/lovable-uploads/b0eccf25-8691-44cc-b402-bf6655ed2289.png', alt: 'Front view' },
-        { id: 2, src: '/lovable-uploads/a8e97c38-4cc0-4b0e-9b21-eada3898da34.png', alt: 'Side view with Cool Touch Handle' },
-        { id: 3, src: '/lovable-uploads/71c144d8-1b17-4de4-b700-f2d45c3f6aeb.png', alt: 'Top view (Open)' },
-        { id: 4, src: '/lovable-uploads/c994ea06-a5ce-4656-8f36-6d758469ede1.png', alt: 'Feature view' }
+        { id: 1, src: '/lovable-uploads/dbe6c0bd-6680-4113-afd3-3f9bdf865d44.png', alt: 'Main view' },
+        { id: 2, src: '/lovable-uploads/b0eccf25-8691-44cc-b402-bf6655ed2289.png', alt: 'Front view' },
+        { id: 3, src: '/lovable-uploads/a8e97c38-4cc0-4b0e-9b21-eada3898da34.png', alt: 'Side view with Cool Touch Handle' },
+        { id: 4, src: '/lovable-uploads/71c144d8-1b17-4de4-b700-f2d45c3f6aeb.png', alt: 'Top view (Open)' },
+        { id: 5, src: '/lovable-uploads/c994ea06-a5ce-4656-8f36-6d758469ede1.png', alt: 'Feature view' }
       ];
     }
     
