@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -19,7 +20,7 @@ const renderRatingStars = (rating: number) => {
       {[...Array(5)].map((_, i) => (
         <Star 
           key={i} 
-          className={`h-4 w-4 ${i < Math.round(rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} 
+          className={`h-5 w-5 ${i < Math.round(rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} 
         />
       ))}
       <span className="ml-1 text-sm text-gray-600">{rating.toFixed(1)}</span>
@@ -45,12 +46,12 @@ const ProductDetail = () => {
         { id: 5, src: '/lovable-uploads/c994ea06-a5ce-4656-8f36-6d758469ede1.png', alt: 'Feature view' }
       ];
     } else if (productId === 'k1') {
-      // For 1.5L kettle, let's use the main image but create placeholder angle views
+      // For 1.5L kettle, let's use the new main image and create placeholder angle views
       return [
-        { id: 1, src: '/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png', alt: 'Main view' },
-        { id: 2, alt: 'Front view' },
-        { id: 3, alt: 'Side view' },
-        { id: 4, alt: 'Top view' }
+        { id: 1, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Main view' },
+        { id: 2, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Front view' },
+        { id: 3, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Side view' },
+        { id: 4, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Top view' }
       ];
     }
     
@@ -115,7 +116,7 @@ const ProductDetail = () => {
   const angleImages = getAngleImages(productId || '');
   
   // Create image array
-  const productImages = productId === 'k2' ? 
+  const productImages = productId === 'k2' || productId === 'k1' ? 
     angleImages.map(angle => ({
       src: angle.src || product.image,
       alt: angle.alt
@@ -134,40 +135,40 @@ const ProductDetail = () => {
         <Button 
           onClick={goBack} 
           variant="ghost" 
-          className="mb-6 hover:bg-green-100 flex items-center gap-2"
+          className="mb-8 hover:bg-green-100 flex items-center gap-2 text-lg"
         >
-          <ArrowLeft className="h-4 w-4" /> Back to Products
+          <ArrowLeft className="h-5 w-5" /> Back to Products
         </Button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 animate-fade-in">
-          <div className="bg-white p-6 rounded-2xl shadow-md">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 animate-fade-in">
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
             <div className="relative">
               <img 
                 src={productImages[activeImage].src} 
                 alt={productImages[activeImage].alt} 
-                className="max-h-80 w-full object-contain mb-6"
+                className="max-h-96 w-full object-contain mb-8"
               />
-              <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+              <div className="absolute bottom-6 right-6 bg-black/60 text-white px-4 py-2 rounded-full text-base">
                 {productImages[activeImage].alt}
               </div>
             </div>
             
-            <div className="flex justify-center gap-3 mt-6">
+            <div className="flex justify-center gap-4 mt-8">
               {productImages.map((image, idx) => (
                 <button 
                   key={idx} 
-                  className={`p-1 rounded-md hover:opacity-80 ${activeImage === idx ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
+                  className={`p-2 rounded-md hover:opacity-80 ${activeImage === idx ? 'border-3 border-brand-green' : 'border-2 border-gray-200'}`}
                   onClick={() => handleThumbnailClick(idx)}
                 >
                   {image.src ? (
                     <img 
                       src={image.src} 
                       alt={image.alt} 
-                      className="h-16 w-16 object-cover" 
+                      className="h-20 w-20 object-cover" 
                     />
                   ) : (
-                    <div className="h-16 w-16 flex items-center justify-center">
-                      <div className="text-xs text-center text-gray-600">
+                    <div className="h-20 w-20 flex items-center justify-center">
+                      <div className="text-sm text-center text-gray-600">
                         {image.alt.replace(`${product.name} - `, '')}
                       </div>
                     </div>
@@ -178,35 +179,35 @@ const ProductDetail = () => {
           </div>
 
           <div className="flex flex-col">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8">
               <div>
-                <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <h1 className="text-3xl font-bold text-gray-800">{product.name}</h1>
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <h1 className="text-4xl font-bold text-gray-800">{product.name}</h1>
                   {product.isBestseller && (
-                    <Badge className="bg-red-500">
-                      <Award className="w-3 h-3 mr-1" /> Bestseller
+                    <Badge className="bg-red-500 text-base px-3 py-1">
+                      <Award className="w-4 h-4 mr-1" /> Bestseller
                     </Badge>
                   )}
                   {product.isNewArrival && (
-                    <Badge className="bg-blue-500">
-                      <TrendingUp className="w-3 h-3 mr-1" /> New Arrival
+                    <Badge className="bg-blue-500 text-base px-3 py-1">
+                      <TrendingUp className="w-4 h-4 mr-1" /> New Arrival
                     </Badge>
                   )}
                 </div>
-                <div className="mb-4">{renderRatingStars(product.rating)}</div>
+                <div className="mb-6">{renderRatingStars(product.rating)}</div>
               </div>
 
               {category === 'gas-stoves' && product.size && (
-                <div className="bg-green-50 p-4 rounded-md">
-                  <h3 className="font-semibold text-lg mb-2">Glass Size:</h3>
-                  <p className="text-gray-700">{product.size}</p>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="font-semibold text-xl mb-3">Glass Size:</h3>
+                  <p className="text-gray-700 text-lg">{product.size}</p>
                 </div>
               )}
 
               {category === 'kettles' && (
-                <div className="bg-amber-50 p-4 rounded-md mb-4">
-                  <h3 className="font-semibold text-lg mb-2">Key Features:</h3>
-                  <ul className="list-disc pl-5 space-y-2">
+                <div className="bg-amber-50 p-6 rounded-lg mb-6">
+                  <h3 className="font-semibold text-xl mb-3">Key Features:</h3>
+                  <ul className="list-disc pl-5 space-y-3 text-lg">
                     {productId === 'k1' && (
                       <>
                         <li>Food grade stainless steel body</li>
@@ -239,9 +240,9 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              <div className="bg-blue-50 p-4 rounded-md">
-                <h3 className="font-semibold text-lg mb-3">Specifications:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="font-semibold text-xl mb-4">Specifications:</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-lg">
                   {category === 'gas-stoves' && (
                     <>
                       <div>
@@ -283,10 +284,10 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              <div className="mt-6">
+              <div className="mt-8">
                 <Button
                   onClick={handleRequestQuote}
-                  className="w-full py-6 text-lg bg-brand-green hover:bg-green-800 transition-transform hover:scale-105"
+                  className="w-full py-8 text-xl bg-brand-green hover:bg-green-800 transition-transform hover:scale-105"
                 >
                   Request Quote for {product.name}
                 </Button>

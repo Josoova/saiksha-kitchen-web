@@ -125,7 +125,7 @@ export const kettleSpecs: KettleSpec[] = [
       "Boil-Dry Protection", 
       "Mirror and Matt Finish"
     ],
-    image: "public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png",
+    image: "public/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png",
     rating: 4.8,
     isBestseller: true
   },
