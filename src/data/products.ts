@@ -138,7 +138,7 @@ export const kettleSpecs: KettleSpec[] = [
       "Cordless Design", 
       "Mirror and Matt Finish"
     ],
-    image: "public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png",
+    image: "public/lovable-uploads/dbe6c0bd-6680-4113-afd3-3f9bdf865d44.png",
     rating: 4.6
   },
   { 

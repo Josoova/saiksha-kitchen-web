@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -35,7 +34,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
   
-  // Custom angle images for the Electric Kettle 1.8L product
+  // Custom angle images for kettle products
   const getAngleImages = (productId: string) => {
     if (productId === 'k2') {
       return [
@@ -44,6 +43,14 @@ const ProductDetail = () => {
         { id: 3, src: '/lovable-uploads/a8e97c38-4cc0-4b0e-9b21-eada3898da34.png', alt: 'Side view with Cool Touch Handle' },
         { id: 4, src: '/lovable-uploads/71c144d8-1b17-4de4-b700-f2d45c3f6aeb.png', alt: 'Top view (Open)' },
         { id: 5, src: '/lovable-uploads/c994ea06-a5ce-4656-8f36-6d758469ede1.png', alt: 'Feature view' }
+      ];
+    } else if (productId === 'k1') {
+      // For 1.5L kettle, let's use the main image but create placeholder angle views
+      return [
+        { id: 1, src: '/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png', alt: 'Main view' },
+        { id: 2, alt: 'Front view' },
+        { id: 3, alt: 'Side view' },
+        { id: 4, alt: 'Top view' }
       ];
     }
     
@@ -152,7 +159,7 @@ const ProductDetail = () => {
                   className={`p-1 rounded-md hover:opacity-80 ${activeImage === idx ? 'border-2 border-brand-green' : 'border-2 border-gray-200'}`}
                   onClick={() => handleThumbnailClick(idx)}
                 >
-                  {productId === 'k2' ? (
+                  {image.src ? (
                     <img 
                       src={image.src} 
                       alt={image.alt} 
@@ -196,16 +203,38 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {category === 'kettles' && productId === 'k2' && (
+              {category === 'kettles' && (
                 <div className="bg-amber-50 p-4 rounded-md mb-4">
                   <h3 className="font-semibold text-lg mb-2">Key Features:</h3>
                   <ul className="list-disc pl-5 space-y-2">
-                    <li>Food grade stainless steel body</li>
-                    <li>Spill proof design</li>
-                    <li>Cool touch handles for safety</li>
-                    <li>Power efficient operation</li>
-                    <li>Can boil up to 6 cups of water</li>
-                    <li>1.8L Capacity</li>
+                    {productId === 'k1' && (
+                      <>
+                        <li>Food grade stainless steel body</li>
+                        <li>Auto shut-off functionality</li>
+                        <li>Boil-dry protection</li>
+                        <li>Ergonomic handle design</li>
+                        <li>1.5L Capacity</li>
+                      </>
+                    )}
+                    {productId === 'k2' && (
+                      <>
+                        <li>Food grade stainless steel body</li>
+                        <li>Spill proof design</li>
+                        <li>Cool touch handles for safety</li>
+                        <li>Power efficient operation</li>
+                        <li>Can boil up to 6 cups of water</li>
+                        <li>1.8L Capacity</li>
+                      </>
+                    )}
+                    {productId === 'k3' && (
+                      <>
+                        <li>Variable temperature control</li>
+                        <li>Keep warm function</li>
+                        <li>Digital temperature display</li>
+                        <li>Premium mirror and matt finish</li>
+                        <li>Multiple preset modes</li>
+                      </>
+                    )}
                   </ul>
                 </div>
               )}
