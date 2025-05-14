@@ -146,7 +146,7 @@ const ProductDetail = () => {
               <img 
                 src={productImages[activeImage].src} 
                 alt={productImages[activeImage].alt} 
-                className="max-h-96 w-full object-contain mb-8"
+                className={`w-full object-contain mb-8 ${productId === 'k1' ? 'max-h-[500px]' : 'max-h-96'}`}
               />
               <div className="absolute bottom-6 right-6 bg-black/60 text-white px-4 py-2 rounded-full text-base">
                 {productImages[activeImage].alt}
@@ -164,10 +164,10 @@ const ProductDetail = () => {
                     <img 
                       src={image.src} 
                       alt={image.alt} 
-                      className="h-20 w-20 object-cover" 
+                      className="h-24 w-24 object-cover" // Increased thumbnail size from h-20 w-20 to h-24 w-24
                     />
                   ) : (
-                    <div className="h-20 w-20 flex items-center justify-center">
+                    <div className="h-24 w-24 flex items-center justify-center"> {/* Increased size here as well */}
                       <div className="text-sm text-center text-gray-600">
                         {image.alt.replace(`${product.name} - `, '')}
                       </div>
@@ -198,16 +198,16 @@ const ProductDetail = () => {
               </div>
 
               {category === 'gas-stoves' && product.size && (
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-xl mb-3">Glass Size:</h3>
-                  <p className="text-gray-700 text-lg">{product.size}</p>
+                <div className="bg-green-50 p-8 rounded-lg"> {/* Increased padding from p-6 to p-8 */}
+                  <h3 className="font-semibold text-2xl mb-4">Glass Size:</h3> {/* Increased text size from xl to 2xl */}
+                  <p className="text-gray-700 text-xl">{product.size}</p> {/* Increased text size from lg to xl */}
                 </div>
               )}
 
               {category === 'kettles' && (
-                <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                  <h3 className="font-semibold text-xl mb-3">Key Features:</h3>
-                  <ul className="list-disc pl-5 space-y-3 text-lg">
+                <div className="bg-amber-50 p-8 rounded-lg mb-6"> {/* Increased padding from p-6 to p-8 */}
+                  <h3 className="font-semibold text-2xl mb-4">Key Features:</h3> {/* Increased text size from xl to 2xl */}
+                  <ul className="list-disc pl-5 space-y-4 text-xl"> {/* Increased spacing and text size */}
                     {productId === 'k1' && (
                       <>
                         <li>Food grade stainless steel body</li>
@@ -240,9 +240,9 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-xl mb-4">Specifications:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-lg">
+              <div className="bg-blue-50 p-8 rounded-lg"> {/* Increased padding from p-6 to p-8 */}
+                <h3 className="font-semibold text-2xl mb-4">Specifications:</h3> {/* Increased text size from xl to 2xl */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xl"> {/* Increased gap and text size */}
                   {category === 'gas-stoves' && (
                     <>
                       <div>
@@ -287,7 +287,8 @@ const ProductDetail = () => {
               <div className="mt-8">
                 <Button
                   onClick={handleRequestQuote}
-                  className="w-full py-8 text-xl bg-brand-green hover:bg-green-800 transition-transform hover:scale-105"
+                  className="w-full py-10 text-2xl bg-brand-green hover:bg-green-800 transition-transform hover:scale-105" 
+                  // Increased padding and font size
                 >
                   Request Quote for {product.name}
                 </Button>
