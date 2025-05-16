@@ -107,7 +107,7 @@ export const gasStoveSpecs: {
       name: "4 Burner Straight Tapered Frame", 
       size: "860 x 400 x 8 mm", 
       features: ["Straight Tapered Frame", "Straight Gas Pipe"],
-      image: "public/lovable-uploads/9234820b-7143-420b-8fee-f1729c5d6646.png",
+      image: "public/lovable-uploads/5f9d66c1-7b34-4d34-a193-f47790fca771.png",
       rating: 4.9,
       isNewArrival: true
     }

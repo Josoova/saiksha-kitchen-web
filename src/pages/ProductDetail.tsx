@@ -35,7 +35,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
   
-  // Custom angle images for kettle products
+  // Custom angle images for products
   const getAngleImages = (productId: string) => {
     if (productId === 'k2') {
       return [
@@ -52,6 +52,15 @@ const ProductDetail = () => {
         { id: 2, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Front view' },
         { id: 3, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Side view' },
         { id: 4, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Top view' }
+      ];
+    } else if (productId === '4b2') {
+      // For 4 Burner gas stove, use the new uploaded images
+      return [
+        { id: 1, src: '/lovable-uploads/5f9d66c1-7b34-4d34-a193-f47790fca771.png', alt: 'Main view' },
+        { id: 2, src: '/lovable-uploads/34f68b29-d11c-48e7-bd9a-2b0894038877.png', alt: 'Front angle view' },
+        { id: 3, src: '/lovable-uploads/8bc1dff9-398f-4710-bb76-c173fb6145de.png', alt: 'Side angle view' },
+        { id: 4, src: '/lovable-uploads/41e058a6-71ad-4a1a-a80d-ead473b7c775.png', alt: 'Burner close-up' },
+        { id: 5, src: '/lovable-uploads/83f8ab00-2e61-4278-85c5-6dbf3b146988.png', alt: 'Control knob' }
       ];
     }
     
@@ -116,7 +125,7 @@ const ProductDetail = () => {
   const angleImages = getAngleImages(productId || '');
   
   // Create image array
-  const productImages = productId === 'k2' || productId === 'k1' ? 
+  const productImages = (productId === 'k2' || productId === 'k1' || productId === '4b2') ? 
     angleImages.map(angle => ({
       src: angle.src || product.image,
       alt: angle.alt
@@ -146,7 +155,7 @@ const ProductDetail = () => {
               <img 
                 src={productImages[activeImage].src} 
                 alt={productImages[activeImage].alt} 
-                className={`w-full object-contain mb-8 ${productId === 'k1' ? 'max-h-[500px]' : 'max-h-96'}`}
+                className={`w-full object-contain mb-8 ${productId === 'k1' ? 'max-h-[500px]' : 'max-h-[600px]'}`}
               />
               <div className="absolute bottom-6 right-6 bg-black/60 text-white px-4 py-2 rounded-full text-base">
                 {productImages[activeImage].alt}
