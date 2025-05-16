@@ -53,10 +53,10 @@ const ProductDetail = () => {
         { id: 4, src: '/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png', alt: 'Top view' }
       ];
     } else if (productId === '4b2') {
-      // For 4 Burner gas stove, use the updated main image and keep the other angle images
+      // For 4 Burner gas stove, use the updated main image and replace the front angle view with new image
       return [
         { id: 1, src: '/lovable-uploads/ff720193-1ed3-4659-9808-85f7f7f44377.png', alt: 'Main view' },
-        { id: 2, src: '/lovable-uploads/34f68b29-d11c-48e7-bd9a-2b0894038877.png', alt: 'Front angle view' },
+        { id: 2, src: '/lovable-uploads/8211c46e-e86f-4edd-bd5e-4023fe0ec5fd.png', alt: 'Front angle view' },
         { id: 3, src: '/lovable-uploads/8bc1dff9-398f-4710-bb76-c173fb6145de.png', alt: 'Side angle view' },
         { id: 4, src: '/lovable-uploads/41e058a6-71ad-4a1a-a80d-ead473b7c775.png', alt: 'Burner close-up' },
         { id: 5, src: '/lovable-uploads/83f8ab00-2e61-4278-85c5-6dbf3b146988.png', alt: 'Control knob' }
