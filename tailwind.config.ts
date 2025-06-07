@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					green: '#12582A',
+					green: '#1B4332',
 					gold: '#D4A335',
 				}
 			},
