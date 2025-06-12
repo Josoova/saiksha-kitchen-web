@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -125,7 +126,7 @@ const Products = () => {
   return (
     <div className="relative">
       <section 
-        className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-20 overflow-hidden animate-fade-in"
+        className="relative bg-gradient-to-r from-brand-green to-green-900 text-white py-32 md:py-40 overflow-hidden animate-fade-in"
       >
         <div className="absolute inset-0 z-0">
           <img 

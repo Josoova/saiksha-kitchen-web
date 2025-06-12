@@ -18,7 +18,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
   
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-brand-green shadow-md">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
@@ -32,7 +32,7 @@ const Header = () => {
                 key={link.name}
                 to={link.path}
                 className={`font-semibold text-sm transition-colors hover:text-brand-gold ${
-                  isActive(link.path) ? 'text-brand-gold' : 'text-gray-700'
+                  isActive(link.path) ? 'text-brand-gold' : 'text-white'
                 }`}
               >
                 {link.name}
@@ -44,7 +44,7 @@ const Header = () => {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="md:hidden"
+            className="md:hidden text-white hover:text-brand-gold hover:bg-white/10"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
@@ -53,14 +53,14 @@ const Header = () => {
         
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-gray-100">
+          <div className="md:hidden mt-4 py-4 border-t border-white/20">
             <nav className="flex flex-col space-y-4">
               {navigationLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
                   className={`font-semibold text-sm transition-colors hover:text-brand-gold ${
-                    isActive(link.path) ? 'text-brand-gold' : 'text-gray-700'
+                    isActive(link.path) ? 'text-brand-gold' : 'text-white'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

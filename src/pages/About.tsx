@@ -1,3 +1,4 @@
+
 import { Building, Award, Users, Clock, Star, MapPin, Mail, ChevronRight, Info, Target, Compass } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -58,7 +59,7 @@ const About = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="relative h-[400px] md:h-[500px] animate-fade-in">
+        <section className="relative h-[600px] md:h-[700px] animate-fade-in">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/50 z-10"></div>
