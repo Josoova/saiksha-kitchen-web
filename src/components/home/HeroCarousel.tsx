@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { 
@@ -34,7 +35,7 @@ const HeroCarousel = () => {
               <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 z-10"></div>
                 <img 
-                  src="/lovable-uploads/54a0e169-8b36-48e0-99c1-bdce5cf9052a.png" 
+                  src="/lovable-uploads/3ff0931a-7ab1-4e8b-b47f-f8934582a7ae.png" 
                   alt="Modern Gas Stove" 
                   className="w-full h-full object-cover"
                 />
