@@ -1,3 +1,4 @@
+
 import HeroCarousel from '@/components/home/HeroCarousel';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import WhyChooseUs from '@/components/home/WhyChooseUs';
@@ -7,7 +8,7 @@ import FactoryOverview from '@/components/home/FactoryOverview';
 import ZigzagFeature from '@/components/home/ZigzagFeature';
 import ScrollToTop from '@/components/home/ScrollToTop';
 import FloatingElements from '@/components/home/FloatingElements';
-import { Award, Shield, Factory, Users, Star } from 'lucide-react'; 
+import { Award, Shield, Factory, Users, Star, Handshake } from 'lucide-react'; 
 
 const Home = () => {
   return (
@@ -102,11 +103,11 @@ const Home = () => {
                     </div>
                   </div>
                   
-                  {/* Experience */}
+                  {/* OEM Partners */}
                   <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 shadow-xl">
-                    <Factory className="h-12 w-12 mb-4 text-brand-green" />
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">15+ Years</h3>
-                    <p className="text-gray-600">Manufacturing Excellence</p>
+                    <Handshake className="h-12 w-12 mb-4 text-brand-green" />
+                    <h3 className="text-2xl font-bold mb-2 text-gray-800">10+</h3>
+                    <p className="text-gray-600">OEM Partners</p>
                   </div>
                 </div>
               </div>
