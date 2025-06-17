@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Contact from "./pages/Contact";
+import ImageGuide from "./pages/ImageGuide";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/products" element={<Layout><ProductsWithTabHandler /></Layout>} />
           <Route path="/products/:category/:productId" element={<Layout><ProductDetail /></Layout>} />
           <Route path="/contact" element={<Layout><Contact /></Layout>} />
+          <Route path="/image-guide" element={<Layout><ImageGuide /></Layout>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
