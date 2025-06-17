@@ -1,8 +1,8 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
-import { Camera, Download, Eye, FileImage } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Camera, Download, Eye, FileImage, FileSpreadsheet } from 'lucide-react';
 
 const ImageGuide = () => {
   const pageImages = {
@@ -272,6 +272,47 @@ const ImageGuide = () => {
     }
   ];
 
+  const downloadCSV = () => {
+    const csvData = [];
+    
+    // Add header row
+    csvData.push(['Page', 'Section', 'Image Name', 'Current File', 'Recommended Size', 'Format', 'Max Size', 'Description']);
+    
+    // Add data rows
+    Object.entries(pageImages).forEach(([pageKey, page]) => {
+      page.sections.forEach(section => {
+        section.images.forEach(image => {
+          csvData.push([
+            page.title,
+            section.sectionName,
+            image.name,
+            image.currentFile,
+            image.recommendedSize,
+            image.format,
+            image.maxSize,
+            image.description
+          ]);
+        });
+      });
+    });
+
+    // Convert to CSV string
+    const csvContent = csvData.map(row => 
+      row.map(field => `"${field.replace(/"/g, '""')}"`).join(',')
+    ).join('\n');
+
+    // Create and download file
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'saiksha-website-image-specifications.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12">
       <div className="container mx-auto px-4">
@@ -284,10 +325,22 @@ const ImageGuide = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-green to-brand-gold bg-clip-text text-transparent">
             Website Image Guide
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
             Complete specification guide for all images used across the Saiksha Kitchen Appliances website
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-brand-green to-brand-gold mx-auto mt-6"></div>
+
+          {/* Download CSV Button */}
+          <div className="flex justify-center mb-6">
+            <Button 
+              onClick={downloadCSV}
+              className="bg-gradient-to-r from-brand-green to-brand-gold hover:from-brand-green/90 hover:to-brand-gold/90 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
+            >
+              <FileSpreadsheet className="w-5 h-5" />
+              Download Excel File (CSV)
+            </Button>
+          </div>
+
+          <div className="w-24 h-1 bg-gradient-to-r from-brand-green to-brand-gold mx-auto"></div>
         </div>
 
         {/* Page-wise Image Breakdown */}
