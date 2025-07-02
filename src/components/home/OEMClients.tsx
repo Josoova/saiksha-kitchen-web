@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import {
   Carousel,
@@ -16,14 +15,14 @@ const OEMClients = () => {
   const plugin = Autoplay({ delay: 2000, stopOnInteraction: false });
 
   const clients = [
-    { name: "Sowbaghya", logo: "/lovable-uploads/9234820b-7143-420b-8fee-f1729c5d6646.png" },
-    { name: "Premier", logo: "/lovable-uploads/365208f2-ccbc-4d31-9233-da5887f389b8.png" },
-    { name: "Thangam", logo: "/lovable-uploads/500b1e70-f84a-4ac7-b409-5df61ce5823d.png" },
-    { name: "Butterfly", logo: "/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" },
-    { name: "Prestige", logo: "/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png" },
-    { name: "Twinbirds", logo: "/lovable-uploads/44e90ac6-77dd-4cb4-b53b-64c6ce6eea43.png" },
-    { name: "Easy", logo: "/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png" },
-    { name: "Diamond", logo: "/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png" }
+    { name: "Sowbaghya", logo: "/lovable-uploads/db48558e-2ec9-43dc-bf0d-b32244b8d3ce.png" },
+    { name: "Premier", logo: "/lovable-uploads/4f14ddfe-d860-4e2c-b016-a6ca5b2e8948.png" },
+    { name: "Thangam", logo: "/lovable-uploads/57817434-8625-4ba4-8900-3ab3e6410640.png" },
+    { name: "Butterfly", logo: "/lovable-uploads/a8ff4446-56fb-4150-8f3f-a9099673e21c.png" },
+    { name: "Prestige", logo: "/lovable-uploads/f703ea27-c5ee-43fa-b8bc-7aa3821696bb.png" },
+    { name: "Twinbirds", logo: "/lovable-uploads/14583801-bc7e-4b9f-bcc4-c0340d75c858.png" },
+    { name: "Easy", logo: "/lovable-uploads/23a3af52-791d-44cb-8ddb-7b542398d2cb.png" },
+    { name: "Meenumix", logo: "/lovable-uploads/9ea7e3e3-4f5c-4608-b34a-5abcbc7cb2b1.png" }
   ];
 
   return (
@@ -114,7 +113,7 @@ const OEMClients = () => {
           {/* Updated Stats Counter */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
             <div className="text-center group">
-              <div className="text-3xl font-bold text-brand-green mb-2 group-hover:scale-110 transition-transform duration-300">10+</div>
+              <div className="text-3xl font-bold text-brand-green mb-2 group-hover:scale-110 transition-transform duration-300">8+</div>
               <div className="text-gray-600 text-sm">OEM Partners</div>
             </div>
             <div className="text-center group">
