@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import {
   Carousel,
@@ -97,7 +98,7 @@ const OEMClients = () => {
                         <img
                           src={client.logo}
                           alt={`${client.name} logo`}
-                          className="h-full max-h-24 object-contain group-hover:scale-110 transition-transform duration-500 filter grayscale group-hover:grayscale-0"
+                          className="h-full max-h-24 object-contain group-hover:scale-110 transition-transform duration-500"
                         />
                         <p className="mt-4 font-medium text-gray-700 group-hover:text-brand-green transition-colors duration-300">{client.name}</p>
                       </div>
