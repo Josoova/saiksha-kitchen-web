@@ -63,7 +63,7 @@ const ZigzagFeature = () => {
           <div className="md:w-1/2 order-1 md:order-2">
             <div className="relative group">
               <img 
-                src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" 
+                src="/lovable-uploads/44e90ac6-77dd-4cb4-b53b-64c6ce6eea43.png" 
                 alt="Premium Gas Stove" 
                 className="rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-3xl hover:scale-105"
               />
@@ -83,8 +83,8 @@ const ZigzagFeature = () => {
           <div className="md:w-1/2">
             <div className="relative group">
               <img 
-                src="public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png" 
-                alt="Electric Kettle" 
+                src="/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png" 
+                alt="Electric Kettle Collection" 
                 className="rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-3xl hover:scale-105"
               />
               <div className="absolute top-4 right-4 bg-white rounded-full p-3 shadow-lg flex items-center gap-2">
