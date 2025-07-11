@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -47,7 +46,7 @@ const Products = () => {
       <div className="relative">
         <img 
           src={spec.image} 
-          alt={spec.name}
+          alt="Gas Stove"
           className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -65,7 +64,6 @@ const Products = () => {
         </div>
       </div>
       <CardContent className="p-6">
-        <h4 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-brand-green transition-colors">{spec.name}</h4>
         <div className="mb-3">{renderRatingStars(spec.rating)}</div>
         <p className="text-gray-600 font-medium">Glass Size: <span className="text-brand-green">{spec.size}</span></p>
       </CardContent>
@@ -92,7 +90,7 @@ const Products = () => {
       <div className="relative">
         <img 
           src={spec.image} 
-          alt={spec.name}
+          alt="Electric Kettle"
           className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -110,7 +108,6 @@ const Products = () => {
         </div>
       </div>
       <CardContent className="p-6">
-        <h4 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-brand-green transition-colors">{spec.name}</h4>
         <div className="mb-3">{renderRatingStars(spec.rating)}</div>
         <div className="space-y-1">
           {spec.features.slice(0, 2).map((feature: string, index: number) => (
