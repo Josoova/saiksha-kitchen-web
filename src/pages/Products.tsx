@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -47,7 +46,7 @@ const Products = () => {
       <div className="relative">
         <img 
           src={spec.image} 
-          alt={spec.name}
+          alt="Gas Stove"
           className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -65,7 +64,6 @@ const Products = () => {
         </div>
       </div>
       <CardContent className="p-6">
-        <h4 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-brand-green transition-colors">{spec.name}</h4>
         <div className="mb-3">{renderRatingStars(spec.rating)}</div>
         <p className="text-gray-600 font-medium">Glass Size: <span className="text-brand-green">{spec.size}</span></p>
       </CardContent>
@@ -92,7 +90,7 @@ const Products = () => {
       <div className="relative">
         <img 
           src={spec.image} 
-          alt={spec.name}
+          alt="Electric Kettle"
           className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -110,7 +108,6 @@ const Products = () => {
         </div>
       </div>
       <CardContent className="p-6">
-        <h4 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-brand-green transition-colors">{spec.name}</h4>
         <div className="mb-3">{renderRatingStars(spec.rating)}</div>
         <div className="space-y-1">
           {spec.features.slice(0, 2).map((feature: string, index: number) => (
@@ -219,15 +216,14 @@ const Products = () => {
                 <TabsContent value="2b">
                   <div className="mb-16 animate-fade-in" style={{animationDelay: "150ms"}}>
                     <div className="text-center mb-12">
-                      <h2 className="text-4xl font-bold text-brand-green mb-4">2 Burner Gas Stoves</h2>
+                      <h2 className="text-4xl font-bold text-brand-green mb-4">2B Gas Stoves</h2>
                       <p className="text-xl text-gray-600 max-w-2xl mx-auto">Perfect for small kitchens and efficient cooking</p>
                     </div>
                     
                     {/* PC Frame Section */}
-                    <div className="mb-12">
-                      <h3 className="text-3xl font-semibold mb-8 flex items-center justify-center">
-                        <Flame className="h-8 w-8 text-brand-gold mr-3" />
-                        PC Frame (Powder Coated)
+                    <div className="mb-16">
+                      <h3 className="text-3xl font-semibold mb-8 text-center text-gray-800">
+                        2B Gas Stove PC Frame
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {twoBurnerFrames.pc.map((spec) => renderGasStoveSpec(spec))}
@@ -235,10 +231,9 @@ const Products = () => {
                     </div>
 
                     {/* SS Frame Section */}
-                    <div className="mb-12">
-                      <h3 className="text-3xl font-semibold mb-8 flex items-center justify-center">
-                        <Flame className="h-8 w-8 text-brand-gold mr-3" />
-                        SS Frame (Stainless Steel)
+                    <div className="mb-16">
+                      <h3 className="text-3xl font-semibold mb-8 text-center text-gray-800">
+                        2B Gas Stove SS Frame
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {twoBurnerFrames.ss.map((spec) => renderGasStoveSpec(spec))}
@@ -250,15 +245,14 @@ const Products = () => {
                 <TabsContent value="3b">
                   <div className="mb-16 animate-fade-in" style={{animationDelay: "150ms"}}>
                     <div className="text-center mb-12">
-                      <h2 className="text-4xl font-bold text-brand-green mb-4">3 Burner Gas Stoves</h2>
+                      <h2 className="text-4xl font-bold text-brand-green mb-4">3B Gas Stoves</h2>
                       <p className="text-xl text-gray-600 max-w-2xl mx-auto">Ideal for medium-sized families and versatile cooking</p>
                     </div>
                     
                     {/* PC Frame Section */}
-                    <div className="mb-12">
-                      <h3 className="text-3xl font-semibold mb-8 flex items-center justify-center">
-                        <Flame className="h-8 w-8 text-brand-gold mr-3" />
-                        PC Frame (Powder Coated)
+                    <div className="mb-16">
+                      <h3 className="text-3xl font-semibold mb-8 text-center text-gray-800">
+                        3B Gas Stove PC Frame
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {threeBurnerFrames.pc.map((spec) => renderGasStoveSpec(spec))}
@@ -266,10 +260,9 @@ const Products = () => {
                     </div>
 
                     {/* SS Frame Section */}
-                    <div className="mb-12">
-                      <h3 className="text-3xl font-semibold mb-8 flex items-center justify-center">
-                        <Flame className="h-8 w-8 text-brand-gold mr-3" />
-                        SS Frame (Stainless Steel)
+                    <div className="mb-16">
+                      <h3 className="text-3xl font-semibold mb-8 text-center text-gray-800">
+                        3B Gas Stove SS Frame
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {threeBurnerFrames.ss.map((spec) => renderGasStoveSpec(spec))}
@@ -281,15 +274,14 @@ const Products = () => {
                 <TabsContent value="4b">
                   <div className="mb-16 animate-fade-in" style={{animationDelay: "150ms"}}>
                     <div className="text-center mb-12">
-                      <h2 className="text-4xl font-bold text-brand-green mb-4">4 Burner Gas Stoves</h2>
+                      <h2 className="text-4xl font-bold text-brand-green mb-4">4B Gas Stoves</h2>
                       <p className="text-xl text-gray-600 max-w-2xl mx-auto">Perfect for large families and extensive cooking needs</p>
                     </div>
                     
                     {/* PC Frame Section */}
-                    <div className="mb-12">
-                      <h3 className="text-3xl font-semibold mb-8 flex items-center justify-center">
-                        <Flame className="h-8 w-8 text-brand-gold mr-3" />
-                        PC Frame (Powder Coated)
+                    <div className="mb-16">
+                      <h3 className="text-3xl font-semibold mb-8 text-center text-gray-800">
+                        4B Gas Stove PC Frame
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {fourBurnerFrames.pc.map((spec) => renderGasStoveSpec(spec))}
@@ -297,10 +289,9 @@ const Products = () => {
                     </div>
 
                     {/* SS Frame Section */}
-                    <div className="mb-12">
-                      <h3 className="text-3xl font-semibold mb-8 flex items-center justify-center">
-                        <Flame className="h-8 w-8 text-brand-gold mr-3" />
-                        SS Frame (Stainless Steel)
+                    <div className="mb-16">
+                      <h3 className="text-3xl font-semibold mb-8 text-center text-gray-800">
+                        4B Gas Stove SS Frame
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {fourBurnerFrames.ss.map((spec) => renderGasStoveSpec(spec))}
