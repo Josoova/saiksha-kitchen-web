@@ -96,40 +96,6 @@ const HeroCarousel = () => {
               </div>
             </div>
           </CarouselItem>
-
-          {/* Slide 3 - New Kitchen Scene */}
-          <CarouselItem className="w-full">
-            <div className="relative h-[600px] md:h-[700px] flex items-center">
-              <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20 z-10"></div>
-                <img 
-                  src="/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png" 
-                  alt="Modern Kitchen Setup" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="container mx-auto px-4 relative z-20">
-                <div className="max-w-2xl text-white">
-                  <span className="inline-block px-4 py-1 mb-5 bg-gradient-to-r from-brand-green to-brand-gold text-white text-sm font-semibold rounded-full animate-scale-in">Complete Kitchen Solutions</span>
-                  <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-enter">
-                    Transform Your Kitchen
-                  </h1>
-                  <p className="text-lg md:text-xl mb-8 text-gray-100">
-                    Complete your modern kitchen with our premium appliance collection designed for the contemporary home.
-                  </p>
-                  <div className="flex flex-wrap gap-4">
-                    <Button asChild className="bg-gradient-to-r from-brand-green to-brand-gold hover:from-green-700 hover:to-amber-600 text-white animate-scale-in text-lg px-8 py-6">
-                      <Link to="/products">View Collection</Link>
-                    </Button>
-                    <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-brand-green animate-scale-in text-lg px-8 py-6" style={{animationDelay: "150ms"}}>
-                      <Link to="/about">Learn More</Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CarouselItem>
         </CarouselContent>
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 z-30">
           <CarouselPrevious className="relative translate-y-0 left-auto" />

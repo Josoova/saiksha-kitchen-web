@@ -24,9 +24,9 @@ const renderRatingStars = (rating: number) => {
 
 const titleSlideImages = [
   {
-    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=600&fit=crop",
-    title: "Premium Gas Stoves",
-    description: "Professional-grade cooking solutions"
+    url: "/lovable-uploads/80d698c2-6615-459e-a49b-2e2f86385c50.png",
+    title: "Kitchen Appliances Collection",
+    description: "Premium quality for modern homes"
   },
   {
     url: "https://images.unsplash.com/photo-1585515656973-bb86d4677264?w=1920&h=600&fit=crop",
