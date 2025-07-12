@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -295,8 +296,7 @@ const ProductDetail = () => {
               <div className="mt-8">
                 <Button
                   onClick={handleRequestQuote}
-                  className="w-full py-10 text-2xl bg-brand-green hover:bg-green-800 transition-transform hover:scale-105" 
-                  // Increased padding and font size
+                  className="w-full py-4 text-lg bg-brand-green hover:bg-green-800 transition-transform hover:scale-105" 
                 >
                   Request Quote for {product.name}
                 </Button>

@@ -24,17 +24,17 @@ const renderRatingStars = (rating: number) => {
 
 const titleSlideImages = [
   {
-    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=400&fit=crop",
+    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=600&fit=crop",
     title: "Premium Gas Stoves",
     description: "Professional-grade cooking solutions"
   },
   {
-    url: "https://images.unsplash.com/photo-1585515656973-bb86d4677264?w=800&h=400&fit=crop",
+    url: "https://images.unsplash.com/photo-1585515656973-bb86d4677264?w=1920&h=600&fit=crop",
     title: "Electric Kettles",
     description: "Modern convenience for your kitchen"
   },
   {
-    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=400&fit=crop",
+    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=600&fit=crop",
     title: "Quality Craftsmanship",
     description: "Built to last with attention to detail"
   }
@@ -65,7 +65,7 @@ const Products = () => {
           </p>
           
           {/* Image Carousel */}
-          <div className="max-w-4xl mx-auto mb-8">
+          <div className="max-w-6xl mx-auto mb-8">
             <Carousel className="w-full">
               <CarouselContent>
                 {titleSlideImages.map((image, index) => (
@@ -74,12 +74,12 @@ const Products = () => {
                       <img 
                         src={image.url} 
                         alt={image.title}
-                        className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
+                        className="w-full h-96 md:h-[600px] object-cover rounded-lg shadow-lg"
                       />
                       <div className="absolute inset-0 bg-black/30 rounded-lg flex items-center justify-center">
                         <div className="text-center text-white">
-                          <h3 className="text-2xl md:text-3xl font-bold mb-2">{image.title}</h3>
-                          <p className="text-lg opacity-90">{image.description}</p>
+                          <h3 className="text-3xl md:text-5xl font-bold mb-4">{image.title}</h3>
+                          <p className="text-xl md:text-2xl opacity-90">{image.description}</p>
                         </div>
                       </div>
                     </div>
@@ -120,7 +120,9 @@ const Products = () => {
             <section>
               <h2 className="text-3xl font-semibold mb-8 text-center">2 Burner Gas Stoves</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {gasStoveSpecs.twoBurner.map((stove) => (
+                {gasStoveSpecs.twoBurner
+                  .filter(stove => !['2b2', '2b3', '2b5'].includes(stove.id)) // Remove specified products
+                  .map((stove) => (
                   <Link key={stove.id} to={`/products/gas-stoves/${stove.id}`}>
                     <Card className="hover:shadow-lg transition-shadow cursor-pointer">
                       <CardHeader>

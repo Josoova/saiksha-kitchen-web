@@ -1,3 +1,4 @@
+
 // Product types
 export type ProductCategory = 'gas-stoves' | 'kettles';
 
@@ -39,37 +40,12 @@ export const gasStoveSpecs: {
       isBestseller: true
     },
     { 
-      id: "2b2", 
-      name: "2 Burner PC Straight Frame", 
-      size: "575 x 275 x 6 mm", 
-      features: ["PC Straight Frame", "T Gas Pipe"],
-      image: "public/lovable-uploads/9234820b-7143-420b-8fee-f1729c5d6646.png",
-      rating: 4.5
-    },
-    { 
-      id: "2b3", 
-      name: "2 Burner SS Diamond Cut Frame", 
-      size: "600 x 320 x 6 mm", 
-      features: ["SS Diamond Cut Frame", "T Gas Pipe"],
-      image: "public/lovable-uploads/2e31a859-9ba3-46b9-8eae-8b9580dfe7bb.png",
-      rating: 4.6
-    },
-    { 
       id: "2b4", 
       name: "2 Burner SS Straight Frame", 
       size: "600 x 350 x 6 mm", 
       features: ["SS Straight Frame", "T Gas Pipe"],
       image: "public/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png",
       rating: 4.4
-    },
-    { 
-      id: "2b5", 
-      name: "2 Burner SS Straight Frame Jumbo", 
-      size: "700 x 360 x 6 mm", 
-      features: ["SS Straight Frame", "T Gas Pipe", "Jumbo Size"],
-      image: "public/lovable-uploads/365208f2-ccbc-4d31-9233-da5887f389b8.png",
-      rating: 4.8,
-      isNewArrival: true
     }
   ],
   threeBurner: [
