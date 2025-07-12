@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Star, Award, TrendingUp, ChefHat, Zap } from 'lucide-react';
 import { gasStoveSpecs, kettleSpecs } from '@/data/products';
 
@@ -20,6 +21,24 @@ const renderRatingStars = (rating: number) => {
     </div>
   );
 };
+
+const titleSlideImages = [
+  {
+    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=400&fit=crop",
+    title: "Premium Gas Stoves",
+    description: "Professional-grade cooking solutions"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1585515656973-bb86d4677264?w=800&h=400&fit=crop",
+    title: "Electric Kettles",
+    description: "Modern convenience for your kitchen"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=400&fit=crop",
+    title: "Quality Craftsmanship",
+    description: "Built to last with attention to detail"
+  }
+];
 
 const Products = () => {
   const [activeTab, setActiveTab] = useState('gas-stoves');
@@ -41,9 +60,37 @@ const Products = () => {
           <h1 className="text-5xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-brand-green to-brand-gold bg-clip-text text-transparent">
             Our Premium Products
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
             Discover our exceptional collection of kitchen appliances, meticulously crafted to transform your cooking experience with unmatched quality and innovative design
           </p>
+          
+          {/* Image Carousel */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {titleSlideImages.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <div className="relative">
+                      <img 
+                        src={image.url} 
+                        alt={image.title}
+                        className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
+                      />
+                      <div className="absolute inset-0 bg-black/30 rounded-lg flex items-center justify-center">
+                        <div className="text-center text-white">
+                          <h3 className="text-2xl md:text-3xl font-bold mb-2">{image.title}</h3>
+                          <p className="text-lg opacity-90">{image.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+
           <div className="mt-8 flex justify-center gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-brand-green">50+</div>
