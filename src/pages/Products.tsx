@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Star, Award, TrendingUp, ChefHat, Zap } from 'lucide-react';
+import { Star, Award, TrendingUp } from 'lucide-react';
 import { gasStoveSpecs, kettleSpecs } from '@/data/products';
 
 const renderRatingStars = (rating: number) => {
@@ -48,22 +48,6 @@ const Products = () => {
       <div className="container mx-auto px-4 py-12">
         {/* Hero Title Slide */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="flex justify-center items-center gap-4 mb-6">
-            <div className="p-3 bg-brand-green/10 rounded-full">
-              <ChefHat className="h-8 w-8 text-brand-green" />
-            </div>
-            <div className="h-1 w-16 bg-gradient-to-r from-brand-green to-brand-gold rounded-full"></div>
-            <div className="p-3 bg-brand-gold/10 rounded-full">
-              <Zap className="h-8 w-8 text-brand-gold" />
-            </div>
-          </div>
-          <h1 className="text-5xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-brand-green to-brand-gold bg-clip-text text-transparent">
-            Our Premium Products
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Discover our exceptional collection of kitchen appliances, meticulously crafted to transform your cooking experience with unmatched quality and innovative design
-          </p>
-          
           {/* Image Carousel */}
           <div className="max-w-6xl mx-auto mb-8">
             <Carousel className="w-full">
@@ -89,23 +73,6 @@ const Products = () => {
               <CarouselPrevious />
               <CarouselNext />
             </Carousel>
-          </div>
-
-          <div className="mt-8 flex justify-center gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-brand-green">50+</div>
-              <div className="text-sm text-gray-600">Product Models</div>
-            </div>
-            <div className="w-px h-12 bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-brand-gold">25+</div>
-              <div className="text-sm text-gray-600">Years Experience</div>
-            </div>
-            <div className="w-px h-12 bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-brand-green">1000+</div>
-              <div className="text-sm text-gray-600">Happy Customers</div>
-            </div>
           </div>
         </div>
 
