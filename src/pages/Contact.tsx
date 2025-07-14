@@ -18,6 +18,26 @@ import {
 import { PhoneInput } from "@/components/contact/PhoneInput";
 import GoogleMap from '@/components/contact/GoogleMap';
 
+// Form service configuration
+const FORM_SERVICE_CONFIG = {
+  // Option 1: Formspree - Replace with your Formspree endpoint
+  formspree: {
+    enabled: true,
+    endpoint: "https://formspree.io/f/YOUR_FORM_ID", // Replace with your actual Formspree form ID
+  },
+  // Option 2: EmailJS - Replace with your EmailJS credentials
+  emailjs: {
+    enabled: false,
+    serviceId: "YOUR_SERVICE_ID",
+    templateId: "YOUR_TEMPLATE_ID",
+    publicKey: "YOUR_PUBLIC_KEY",
+  },
+  // Option 3: Netlify Forms
+  netlify: {
+    enabled: false,
+  }
+};
+
 const Contact = () => {
   const location = useLocation();
   const { toast } = useToast();
@@ -45,17 +65,100 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, phone: value }));
   };
 
+  const submitToFormspree = async (data: typeof formData) => {
+    const response = await fetch(FORM_SERVICE_CONFIG.formspree.endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message,
+        _replyto: data.email,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit form');
+    }
+
+    return response.json();
+  };
+
+  const submitToEmailJS = async (data: typeof formData) => {
+    // Note: You'll need to install EmailJS first: npm install @emailjs/browser
+    // Then uncomment and use this code:
+    /*
+    const emailjs = await import('@emailjs/browser');
+    
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      phone: data.phone,
+      subject: data.subject,
+      message: data.message,
+      to_email: 'info@ska.ltd',
+    };
+
+    const response = await emailjs.send(
+      FORM_SERVICE_CONFIG.emailjs.serviceId,
+      FORM_SERVICE_CONFIG.emailjs.templateId,
+      templateParams,
+      FORM_SERVICE_CONFIG.emailjs.publicKey
+    );
+
+    return response;
+    */
+    throw new Error('EmailJS not configured. Please install @emailjs/browser and configure the service.');
+  };
+
+  const submitToNetlify = async (data: typeof formData) => {
+    const formDataToSubmit = new FormData();
+    formDataToSubmit.append('form-name', 'contact');
+    formDataToSubmit.append('name', data.name);
+    formDataToSubmit.append('email', data.email);
+    formDataToSubmit.append('phone', data.phone);
+    formDataToSubmit.append('subject', data.subject);
+    formDataToSubmit.append('message', data.message);
+
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSubmit as any).toString(),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit form');
+    }
+
+    return response;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // In a real implementation, you would send this data to a server or API
-      // that would forward it to info@ska.ltd
-      console.log('Form data to be sent to info@ska.ltd:', formData);
+      console.log('Submitting form data:', formData);
 
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Choose which service to use based on configuration
+      if (FORM_SERVICE_CONFIG.formspree.enabled) {
+        await submitToFormspree(formData);
+        console.log('Form submitted via Formspree');
+      } else if (FORM_SERVICE_CONFIG.emailjs.enabled) {
+        await submitToEmailJS(formData);
+        console.log('Form submitted via EmailJS');
+      } else if (FORM_SERVICE_CONFIG.netlify.enabled) {
+        await submitToNetlify(formData);
+        console.log('Form submitted via Netlify Forms');
+      } else {
+        // Fallback - simulate submission for demo
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        console.log('Form data (demo mode):', formData);
+      }
       
       // Show success message
       toast({
@@ -73,6 +176,7 @@ const Contact = () => {
         message: '',
       });
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: "Error",
         description: "There was an error sending your message. Please try again.",
@@ -189,7 +293,18 @@ const Contact = () => {
                         <p className="text-amber-800">Requesting a quote for: <strong>{productName}</strong></p>
                       </div>
                     )}
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form 
+                      onSubmit={handleSubmit} 
+                      className="space-y-6"
+                      name="contact"
+                      method="POST"
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                    >
+                      {/* Hidden field for Netlify Forms */}
+                      <input type="hidden" name="form-name" value="contact" />
+                      <input type="hidden" name="bot-field" />
+                      
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -280,8 +395,13 @@ const Contact = () => {
               
               <div className="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
                 <p className="text-sm text-blue-800">
-                  <strong>Note:</strong> All inquiries will be sent to info@ska.ltd and our team will respond within 24-48 business hours.
+                  <strong>Configuration Required:</strong> To enable form submissions, please configure one of the following services in the FORM_SERVICE_CONFIG:
                 </p>
+                <ul className="mt-2 text-xs text-blue-700 space-y-1">
+                  <li>• <strong>Formspree:</strong> Replace YOUR_FORM_ID with your actual Formspree form ID</li>
+                  <li>• <strong>EmailJS:</strong> Add your service ID, template ID, and public key</li>
+                  <li>• <strong>Netlify Forms:</strong> Deploy to Netlify and enable the netlify option</li>
+                </ul>
               </div>
             </div>
           </div>
