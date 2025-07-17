@@ -38,16 +38,17 @@ const Products = () => {
         {/* Hero Title Slide */}
         <div className="text-center mb-16 animate-fade-in">
           {/* Image Carousel */}
-          <div className="max-w-6xl mx-auto mb-8">
+          <div className="w-full mx-auto mb-8">
             <Carousel className="w-full">
               <CarouselContent>
                 {titleSlideImages.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="relative">
+                    <div className="relative w-full">
                       <img 
                         src={image.url} 
                         alt={image.title}
-                        className="w-full h-[600px] object-cover rounded-lg shadow-lg"
+                        className="w-full h-[600px] max-w-[1920px] mx-auto object-cover rounded-lg shadow-lg"
+                        style={{ aspectRatio: '1920/600' }}
                       />
                       <div className="absolute inset-0 bg-black/30 rounded-lg flex items-center justify-center">
                         <div className="text-center text-white">
