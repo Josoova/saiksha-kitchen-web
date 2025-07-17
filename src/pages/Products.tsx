@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,16 +26,6 @@ const titleSlideImages = [
     url: "/lovable-uploads/80d698c2-6615-459e-a49b-2e2f86385c50.png",
     title: "Kitchen Appliances Collection",
     description: "Premium quality for modern homes"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1585515656973-bb86d4677264?w=1920&h=600&fit=crop",
-    title: "Electric Kettles",
-    description: "Modern convenience for your kitchen"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=600&fit=crop",
-    title: "Quality Craftsmanship",
-    description: "Built to last with attention to detail"
   }
 ];
 
@@ -58,7 +47,7 @@ const Products = () => {
                       <img 
                         src={image.url} 
                         alt={image.title}
-                        className="w-full h-96 md:h-[600px] object-cover rounded-lg shadow-lg"
+                        className="w-full h-[600px] object-cover rounded-lg shadow-lg"
                       />
                       <div className="absolute inset-0 bg-black/30 rounded-lg flex items-center justify-center">
                         <div className="text-center text-white">
