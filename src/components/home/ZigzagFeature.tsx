@@ -68,60 +68,6 @@ const ZigzagFeature = () => {
           </div>
         </div>
         
-        {/* Second Zigzag Row */}
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <div className="relative group">
-              <img 
-                src="/lovable-uploads/75f67137-e973-437d-a82e-245ecd693545.png" 
-                alt="Electric Kettle Collection" 
-                className="rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-3xl hover:scale-105"
-              />
-              <div className="absolute top-4 right-4 bg-white rounded-full p-3 shadow-lg flex items-center gap-2">
-                <Star className="h-5 w-5 text-brand-gold fill-brand-gold" />
-                <span className="font-bold text-brand-green">4.8</span>
-              </div>
-              <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs px-3 py-1 rounded-full uppercase font-semibold tracking-wider shadow-lg">
-                New Arrival
-              </div>
-            </div>
-          </div>
-          
-          <div className="md:w-1/2">
-            <div className="relative mb-6">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-brand-gold to-amber-500 text-white shadow-lg">
-                INNOVATIVE SERIES
-              </span>
-            </div>
-            <h3 className="text-3xl font-bold mb-6 text-brand-green">Modern Electric Kettles</h3>
-            <p className="text-gray-700 leading-relaxed mb-8 text-lg">
-              Our electric kettles combine fast heating technology with elegant design to enhance your kitchen experience. 
-              With features like auto shut-off, water level indicators, and cool-touch exteriors, 
-              our kettles prioritize both convenience and safety.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              {[
-                'Fast boiling',
-                'Auto shut-off',
-                'Easy cleaning', 
-                'Elegant designs'
-              ].map((feature) => (
-                <div 
-                  key={feature}
-                  className="flex items-center p-3 rounded-lg bg-white shadow-sm border border-brand-gold/10"
-                >
-                  <Check className="h-5 w-5 text-brand-green mr-3" />
-                  <span className="text-gray-700 font-medium">{feature}</span>
-                </div>
-              ))}
-            </div>
-            
-            <Button asChild className="bg-gradient-to-r from-brand-gold to-amber-500 hover:from-brand-gold hover:to-amber-600 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
-              <Link to="/products?tab=kettles">Discover Kettles</Link>
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
