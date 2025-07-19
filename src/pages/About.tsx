@@ -326,43 +326,6 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
-                <img 
-                  src="public/lovable-uploads/c621b6ac-0c4d-45d4-9f0a-11a9e8ca11d6.png" 
-                  alt="Manufacturing Process" 
-                  className="rounded-lg h-48 w-full object-cover mb-4"
-                />
-                <h3 className="text-xl font-bold mb-2">Advanced Machinery</h3>
-                <p className="text-gray-600">
-                  State-of-the-art equipment ensuring precision and quality in every product.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
-                <img 
-                  src="public/lovable-uploads/896a11a8-b55e-4ef6-a80e-07ceda3ed41c.png" 
-                  alt="Quality Control" 
-                  className="rounded-lg h-48 w-full object-cover mb-4"
-                />
-                <h3 className="text-xl font-bold mb-2">Quality Control</h3>
-                <p className="text-gray-600">
-                  Rigorous testing procedures to ensure every product meets our high standards.
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow text-center transition-all hover:shadow-xl hover:-translate-y-1">
-                <img 
-                  src="public/lovable-uploads/5f227410-172c-4090-be93-e8ba8cf0ed52.png" 
-                  alt="Workspace" 
-                  className="rounded-lg h-48 w-full object-cover mb-4"
-                />
-                <h3 className="text-xl font-bold mb-2">Production Capacity</h3>
-                <p className="text-gray-600">
-                  Large-scale manufacturing capabilities to meet market demands efficiently.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
