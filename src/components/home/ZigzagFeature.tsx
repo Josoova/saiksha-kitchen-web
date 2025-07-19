@@ -12,16 +12,6 @@ const ZigzagFeature = () => {
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-brand-green/10 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-gold/20 to-brand-green/20 rounded-full mb-4">
-            <span className="font-semibold text-brand-green">Premium Quality Solutions</span>
-          </div>
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-brand-green to-brand-gold bg-clip-text text-transparent">
-            Designed for Modern Kitchens
-          </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">Built to last with cutting-edge technology</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-brand-green to-brand-gold mx-auto mt-6"></div>
-        </div>
         
         {/* First Zigzag Row */}
         <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
