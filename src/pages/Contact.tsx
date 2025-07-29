@@ -1,16 +1,55 @@
 
 import { useState } from 'react';
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 import { 
   MailIcon, 
   PhoneIcon, 
   MapPin, 
   Clock, 
-  Building
+  Building,
+  Send
 } from "lucide-react";
 import GoogleMap from '@/components/contact/GoogleMap';
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    toast({
+      title: "Message sent!",
+      description: "Thank you for your message. We'll get back to you soon.",
+    });
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    });
+  };
   return (
     <div className="bg-gradient-to-b from-white to-blue-50 min-h-screen">
       <div className="container mx-auto px-4 py-12">
@@ -25,7 +64,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Information */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <Card className="p-8 h-full bg-gradient-to-b from-green-50 to-emerald-50 border-none shadow-md">
               <h2 className="text-2xl font-bold mb-6 text-brand-green">Get In Touch</h2>
               
@@ -57,6 +96,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
                     <p className="text-gray-700">info@ska.ltd</p>
+                    <p className="text-gray-700">sales1@ska.ltd</p>
                   </div>
                 </div>
                 
@@ -81,6 +121,83 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+            </Card>
+
+            {/* Contact Form */}
+            <Card className="p-8 bg-white shadow-md border-none">
+              <h2 className="text-2xl font-bold mb-6 text-brand-green">Send Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="name">Name *</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="email">Email *</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="phone">Phone</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="mt-1"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="subject">Subject *</Label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="mt-1"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={5}
+                    className="mt-1"
+                  />
+                </div>
+
+                <Button 
+                  type="submit" 
+                  className="w-full bg-brand-green hover:bg-brand-green/90 text-white"
+                >
+                  <Send className="h-4 w-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
             </Card>
             
             {/* Google Map */}
