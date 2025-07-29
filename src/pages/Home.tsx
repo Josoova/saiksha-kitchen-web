@@ -106,7 +106,7 @@ const Home = () => {
                   {/* OEM Partners */}
                   <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 shadow-xl">
                     <Handshake className="h-12 w-12 mb-4 text-brand-green" />
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">10+</h3>
+                    <h3 className="text-2xl font-bold mb-2 text-gray-800">12+</h3>
                     <p className="text-gray-600">OEM Partners</p>
                   </div>
                 </div>

@@ -114,7 +114,7 @@ const OEMClients = () => {
           {/* Updated Stats Counter */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
             <div className="text-center group">
-              <div className="text-3xl font-bold text-brand-green mb-2 group-hover:scale-110 transition-transform duration-300">8+</div>
+              <div className="text-3xl font-bold text-brand-green mb-2 group-hover:scale-110 transition-transform duration-300">12+</div>
               <div className="text-gray-600 text-sm">OEM Partners</div>
             </div>
             <div className="text-center group">
